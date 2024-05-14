@@ -85,3 +85,24 @@ console.log(`Mentos zindagi
 line 1.....
 line 2.....
 line 3.....`)
+
+//Conditions
+const ageOfAnne = 11;
+const isAnneEligible = ageOfAnne >= 18;
+if(isAnneEligible == true) {
+    console.log('Anne can get a driving license 😃');
+} else {
+    let yearsLeft = 18 - ageOfAnne;
+    console.log(`Anne cannot get a driving license 😐
+    But, she can get one after ${yearsLeft} years`);
+}
+
+const ageOfJohn = 67;
+const isJohnEligible = ageOfJohn >= 18;
+if(isJohnEligible == true) {
+    console.log('John can get a driving license 😃');
+} else {
+    let yearsLeft = 18 - ageOfJohn;
+    console.log(`John cannot get a driving license 😐
+    But, she can get one after ${yearsLeft} years 😃`);
+}

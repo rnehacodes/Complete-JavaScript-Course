@@ -87,6 +87,7 @@ line 2.....
 line 3.....`)
 
 //Conditions
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~Conditions~~~~~~~~~~~~~~~~~~~~~~~~')
 const ageOfAnne = 11;
 const isAnneEligible = ageOfAnne >= 18;
 if(isAnneEligible == true) {
@@ -106,3 +107,16 @@ if(isJohnEligible == true) {
     console.log(`John cannot get a driving license 😐
     But, she can get one after ${yearsLeft} years 😃`);
 }
+
+
+//Type Conversion & Coercion
+const birthYear = '2002';
+console.log(birthYear, 14);
+console.log("Without type conversion: " + birthYear + 14);
+console.log(Number(birthYear), birthYear);
+console.log("With type conversion: "  + (Number(birthYear) + 14));
+
+console.log(Number('test string conversion'));
+console.log(String(15), 15);
+console.log('25' - '5' + 10);
+console.log('50' * '5');

@@ -110,6 +110,7 @@ if(isJohnEligible == true) {
 
 
 //Type Conversion & Coercion
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~Type Conversion & Coercion~~~~~~~~~~~~~~~~~~~~~~~~')
 const birthYear = '2002';
 console.log(birthYear, 14);
 console.log("Without type conversion: " + birthYear + 14);
@@ -120,3 +121,55 @@ console.log(Number('test string conversion'));
 console.log(String(15), 15);
 console.log('25' - '5' + 10);
 console.log('50' * '5');
+
+
+//Truthy & Falsy Values
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~Truthy & Falsy Values~~~~~~~~~~~~~~~~~~~~~~~~')
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean({}));
+console.log(Boolean(''));
+console.log(Boolean(""));
+console.log(Boolean("text"));
+
+let bankBalance = 1;
+if(bankBalance) {
+    console.log(`You have ${bankBalance} rupees in your bank account`);
+} else  {
+    console.log("You have no money in your bank account")
+}
+
+let number;
+if(number) {
+    console.log(`The value of number is ${number}`);
+} else {
+    console.log('Number is undefined');
+}
+
+//Equality Operators
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~Equality Operators~~~~~~~~~~~~~~~~~~~~~~~~')
+const age = 18;
+//Strict equality operator
+if(age === 18) console.log("You're eligible to vote!")
+    else console.log("Ineligible to vote")
+if(age === '18') console.log("You're eligible to vote!")
+    else console.log("Ineligible to vote")
+
+//Loose equality operator
+if(age == '18') console.log("You're eligible to vote!")
+    else console.log("Ineligible to vote")
+
+let inputAge = prompt("Enter your age:")
+console.log(inputAge)
+if(typeof inputAge != Number) {
+    console.log('Invalid input')
+}
+
+if(inputAge === 18) console.log("You're eligible to vote!")
+    else console.log("Ineligible to vote")
+
+if(inputAge == '18') console.log("You're eligible to vote!")
+    else console.log("Ineligible to vote")
+
+

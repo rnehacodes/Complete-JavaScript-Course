@@ -172,4 +172,22 @@ if(inputAge === 18) console.log("You're eligible to vote!")
 if(inputAge == '18') console.log("You're eligible to vote!")
     else console.log("Ineligible to vote")
 
+//Logical Operators
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~Logical Operators~~~~~~~~~~~~~~~~~~~~~~~~')
+const hasLicense = true;
+const hasGoodvision = true;
 
+const canDrive = hasLicense && hasGoodvision;
+if(canDrive) {
+    console.log("Eligible to drive!");
+} else {
+    console.log("Ineligible to drive!");
+}
+
+const isTired = true;
+
+if(canDrive && !isTired) {
+    console.log("Continue to drive");
+} else {
+    console.log("Cannot drive. Please take rest!");
+}

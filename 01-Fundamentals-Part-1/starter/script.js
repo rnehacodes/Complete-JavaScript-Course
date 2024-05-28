@@ -191,3 +191,28 @@ if(canDrive && !isTired) {
 } else {
     console.log("Cannot drive. Please take rest!");
 }
+
+//Switch Case Statements
+console.log("~~~~~~~~~~~~~~~~~~~~~~~~Switch Case~~~~~~~~~~~~~~~~~~~~~~~~");
+const day = "Monday";
+switch (day) {
+  case "Monday":
+    console.log(`Today is Monday`);
+    break;
+  case "Tuesday":
+    console.log(`Today is Tuesday`);
+    break;
+  case "Wednesday":
+    console.log(`Today is Wednesday`);
+    break;
+  case "Thursday":
+    console.log(`Today is Thursday`);
+    break;
+  case "Friday":
+    console.log(`Today is Friday`);
+    break;
+  case "Saturday":
+  case "Sunday":
+    console.log(`It's weekend.`);
+    break;
+}

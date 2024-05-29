@@ -216,3 +216,8 @@ switch (day) {
     console.log(`It's weekend.`);
     break;
 }
+
+//Conditional(Ternary) Operator
+console.log("~~~~~~~~~~~~~~~~~~~~~~~~Conditional(Ternary) Operator~~~~~~~~~~~~~~~~~~~~~~~~");
+const drivingAge = 25;
+let canDriveCar = drivingAge > 18 ? console.log('You can drive!') : console.log('You cannot drive!');

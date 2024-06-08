@@ -67,3 +67,30 @@ const isOdd = a => {
 
 let num = 902134;
 console.log(isOdd(num))
+
+//Calling a function within function
+const add = (a, b) => {
+    return(a + b);
+}
+
+const diff = (a, b) => {
+    return(a - b);
+}
+
+const product = (a, b) => {
+    return(a * b);
+}
+
+const division = (a, b) => {
+    return(a / b);
+}
+
+const arithmetics = (a, b) => {
+    console.log(`The numbers are ${a} & ${b} and the results of their arithmetic operations are: `)
+    console.log('Sum is ' + add(a, b));
+    console.log('Difference is ' + diff(a, b));
+    console.log('Product is ' + product(a, b));
+    console.log('Division is ' + division(a, b));
+}
+
+const operations = arithmetics(90, 10);

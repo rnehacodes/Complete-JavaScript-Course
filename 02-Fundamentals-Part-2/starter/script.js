@@ -102,6 +102,10 @@
 console.log("Array of friends");
 const friends = ["John", "Hoan", "Anna"];
 console.log(friends);
+console.log(friends.length)
 
 friends[1] = 'New Friend';
 console.log(friends);
+friends.push('Jenny');
+console.log(friends);
+

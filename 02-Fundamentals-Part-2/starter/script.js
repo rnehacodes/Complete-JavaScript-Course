@@ -1,111 +1,120 @@
 'use strict';
 
-// // Strict Mode
-// let hasDriverLicense = false;
-// const testResult = true;
+// Strict Mode
+let hasDriverLicense = false;
+const testResult = true;
 
-// if (testResult == true) hasDriverLicense = true;
-// if(hasDriverLicense) console.log('Eligible to drive!');
+if (testResult == true) hasDriverLicense = true;
+if(hasDriverLicense) console.log('Eligible to drive!');
 
-// Functions
-// function output(msg) {
-//     console.log(msg)
-// }
+Functions
+function output(msg) {
+    console.log(msg)
+}
 
-// output("Test output function #1")
-// output("Test output function #2")
-// output("Test output function #3")
+output("Test output function #1")
+output("Test output function #2")
+output("Test output function #3")
 
-// function sum(a, b) {
-//     console.log('Numbers are :', a, b);
-//     return a + b;
-// }
+function sum(a, b) {
+    console.log('Numbers are :', a, b);
+    return a + b;
+}
 
-// const sum1 = sum(2, 6);
-// console.log('Sum is', sum1);
+const sum1 = sum(2, 6);
+console.log('Sum is', sum1);
 
-// function product(a, b) {
-//     console.log('Numbers are :', a, b);
-//     const product = `The product is ${a*b}`;
-//     return product;
-// }
+function product(a, b) {
+    console.log('Numbers are :', a, b);
+    const product = `The product is ${a*b}`;
+    return product;
+}
 
-// let multiply = product(6, 10);
-// console.log(multiply)
+let multiply = product(6, 10);
+console.log(multiply)
 
-// ///Function Declaration Vs Function Expression
+///Function Declaration Vs Function Expression
 
-// //Function declaration
-// function sumTillN(n) {
-//     return (n * (n + 1)) / 2;
-// }
+//Function declaration
+function sumTillN(n) {
+    return (n * (n + 1)) / 2;
+}
 
-// //Function expression
-// const square = function (n) {
-//     return n*n;
-// }
+//Function expression
+const square = function (n) {
+    return n*n;
+}
 
-// const a = 5;
-// console.log(sumTillN(a));
+const a = 5;
+console.log(sumTillN(a));
 
-// const b = square(4);
-// console.log(b);
-// console.log(square(b));
+const b = square(4);
+console.log(b);
+console.log(square(b));
 
-// //Arrow Function
-// const diff = (a, b) => a-b;
-// const diff1 = diff(90, 7);
-// console.log(diff1);
+//Arrow Function
+const diff2 = (a, b) => a-b;
+const diff1 = diff2(90, 7);
+console.log(diff1);
 
-// const isOdd = a => {
-//     if(a % 2 != 0) {
-//         return 'Yes';
-//     } else {
-//         return 'false';
-//     }
-// }
+const isOdd = a => {
+    if(a % 2 != 0) {
+        return 'Yes';
+    } else {
+        return 'false';
+    }
+}
 
-// let num = 902134;
-// console.log(isOdd(num))
+let num = 902134;
+console.log(isOdd(num))
 
-// //Calling a function within function
-// const add = (a, b) => {
-//     return(a + b);
-// }
+//Calling a function within function
+const add = (a, b) => {
+    return(a + b);
+}
 
-// const diff = (a, b) => {
-//     return(a - b);
-// }
+const diff = (a, b) => {
+    return(a - b);
+}
 
-// const product = (a, b) => {
-//     return(a * b);
-// }
+const product = (a, b) => {
+    return(a * b);
+}
 
-// const division = (a, b) => {
-//     return(a / b);
-// }
+const division = (a, b) => {
+    return(a / b);
+}
 
-// const arithmetics = (a, b) => {
-//     console.log(`The numbers are ${a} & ${b} and the results of their arithmetic operations are: `)
-//     console.log('Sum is ' + add(a, b));
-//     console.log('Difference is ' + diff(a, b));
-//     console.log('Product is ' + product(a, b));
-//     console.log('Division is ' + division(a, b));
-// }
+const arithmetics = (a, b) => {
+    console.log(`The numbers are ${a} & ${b} and the results of their arithmetic operations are: `)
+    console.log('Sum is ' + add(a, b));
+    console.log('Difference is ' + diff2(a, b));
+    console.log('Product is ' + product(a, b));
+    console.log('Division is ' + division(a, b));
+}
 
-// const operations = arithmetics(90, 10);
+const operations = arithmetics(90, 10);
 
-// // var a = 1, b = 2;
-// // console.log(a, b)
+// var a = 1, b = 2;
+// console.log(a, b)
 
 //Arrays
-console.log("Array of friends");
-const friends = ["John", "Hoan", "Anna"];
-console.log(friends);
-console.log(friends.length)
+//Array Declaration : Way #1
+const fruits1 = ['Apple', 'Banana', 'Orange', 'Kiwi'];
 
-friends[1] = 'New Friend';
-console.log(friends);
-friends.push('Jenny');
-console.log(friends);
+//Array Declaration : Way #2
+const fruits2 = new Array('Guava', 'Pomegranate', 'Watermelon', 'Mango');
 
+console.log("Array of Fruits");
+console.log('1st List of fruits: ' + fruits1);
+console.log('2nd List of fruits: ' + fruits2);
+
+//Modifying array elements
+fruits1[2] = 'Tomato';
+fruits2[0] = 'Sapodilla';
+
+console.log('After modification: \n' + fruits1 + '\n' + fruits2);
+
+const id = 101, firstName = "John", lastName = "Doe", age = 22;
+const employeeInfo = [id, firstName, lastName, age, fruits1];
+console.log(employeeInfo.length + '\n' + employeeInfo);

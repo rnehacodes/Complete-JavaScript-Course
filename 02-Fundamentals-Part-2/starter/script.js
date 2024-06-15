@@ -7,7 +7,7 @@ const testResult = true;
 if (testResult == true) hasDriverLicense = true;
 if(hasDriverLicense) console.log('Eligible to drive!');
 
-Functions
+// Functions
 function output(msg) {
     console.log(msg)
 }
@@ -24,14 +24,13 @@ function sum(a, b) {
 const sum1 = sum(2, 6);
 console.log('Sum is', sum1);
 
-function product(a, b) {
+function multiply(a, b) {
     console.log('Numbers are :', a, b);
-    const product = `The product is ${a*b}`;
-    return product;
+    return `The product is ${a*b}`;
 }
 
-let multiply = product(6, 10);
-console.log(multiply)
+let multiplication = multiply(6, 10);
+console.log(multiplication)
 
 ///Function Declaration Vs Function Expression
 
@@ -89,14 +88,11 @@ const arithmetics = (a, b) => {
     console.log(`The numbers are ${a} & ${b} and the results of their arithmetic operations are: `)
     console.log('Sum is ' + add(a, b));
     console.log('Difference is ' + diff2(a, b));
-    console.log('Product is ' + product(a, b));
+    console.log('Product is ' + multiply(a, b));
     console.log('Division is ' + division(a, b));
 }
 
 const operations = arithmetics(90, 10);
-
-// var a = 1, b = 2;
-// console.log(a, b)
 
 //Arrays
 //Array Declaration : Way #1
@@ -118,3 +114,32 @@ console.log('After modification: \n' + fruits1 + '\n' + fruits2);
 const id = 101, firstName = "John", lastName = "Doe", age = 22;
 const employeeInfo = [id, firstName, lastName, age, fruits1];
 console.log(employeeInfo.length + '\n' + employeeInfo);
+
+//Array Operations
+const yearOfJoining = [2020, 2024, 2019, 2021, 2015];
+console.log(yearOfJoining)
+const calcExperience = (year) => {
+    let date = new Date();
+    console.log(date);
+    return date.getFullYear() - year;
+}
+const yearsOfExperience = new Array(yearOfJoining.length);
+for(let i = 0; i < yearOfJoining.length; i++) {
+    yearsOfExperience[i] = calcExperience(yearOfJoining[i]);
+}
+console.log(yearsOfExperience);
+
+yearOfJoining.push(2029);
+console.log(yearOfJoining);
+
+yearOfJoining.unshift(2001);
+console.log(yearOfJoining);
+
+let popped = yearOfJoining.pop();
+console.log(popped + '\n', yearOfJoining);
+
+let shifted = yearOfJoining.shift();
+console.log(shifted + '\n', yearOfJoining);
+
+console.log(yearOfJoining.indexOf(2021))
+console.log(yearOfJoining.includes(2029), yearOfJoining.includes(2015))

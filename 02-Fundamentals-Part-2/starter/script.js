@@ -143,3 +143,12 @@ console.log(shifted + '\n', yearOfJoining);
 
 console.log(yearOfJoining.indexOf(2021))
 console.log(yearOfJoining.includes(2029), yearOfJoining.includes(2015))
+
+//Objects Intro
+const nutrients = {
+    protein : 'Paneer',
+    carbohydrates : 'Potato',
+    fat : 'Rice',
+    viamtinC : 'Lemon'
+}
+console.log(nutrients)

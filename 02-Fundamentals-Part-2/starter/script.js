@@ -1,6 +1,5 @@
-'use strict';
-
 // Strict Mode
+'use strict';
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Strict Mode~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 let hasDriverLicense = false;
 const testResult = true;
@@ -201,3 +200,48 @@ const nutrients2 = {
 }
 
 console.log(`Ideal protein intake per ${nutrients2.referenceWeight} kg of body weight should be ${nutrients2.proteinIntake(1)}`);
+
+// Loops
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Loops~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+for(let i = 1; i <= 10; i++) {
+    console.log("Repetition!!! 💪🏻");
+}
+
+for(let i = 1; i <= 10; i++) {
+    console.log(`Repetition #${i}!!! 💪🏻`);
+}
+
+const arr = [
+    'abc',
+    123,
+    true,
+    4.67,
+    'f',
+    45657678705645121435576
+];
+
+console.log('Iterating through array elements with their types');
+for(let i = 0; i < arr.length; i++) {
+    console.log(arr[i], typeof arr[i]);
+}
+
+console.log('Array made of array type');
+const dataType = [];
+for(let i = 0; i < arr.length; i++) {
+    dataType[i] = typeof arr[i];
+    console.log(dataType[i]);
+}
+
+//Continue
+console.log('Printing only number elements using \'continue\' ');
+for(let i = 0; i < arr.length; i++) {
+    if(typeof arr[i] != 'number') continue;
+    console.log(arr[i], typeof arr[i]);
+}
+
+//Break
+console.log('Printing only elements until a boolean is encountered using \'break\' ');
+for(let i = 0; i < arr.length; i++) {
+    if(typeof arr[i] == 'boolean') break;
+    console.log(arr[i], typeof arr[i]);
+}

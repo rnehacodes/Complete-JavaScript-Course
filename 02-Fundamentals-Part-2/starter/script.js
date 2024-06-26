@@ -203,13 +203,13 @@ console.log(`Ideal protein intake per ${nutrients2.referenceWeight} kg of body w
 
 // Loops
 console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Loops~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-for(let i = 1; i <= 10; i++) {
-    console.log("Repetition!!! 💪🏻");
-}
+// for(let i = 1; i <= 10; i++) {
+//     console.log("Repetition!!! 💪🏻");
+// }
 
-for(let i = 1; i <= 10; i++) {
-    console.log(`Repetition #${i}!!! 💪🏻`);
-}
+// for(let i = 1; i <= 10; i++) {
+//     console.log(`Repetition #${i}!!! 💪🏻`);
+// }
 
 const arr = [
     'abc',
@@ -244,4 +244,23 @@ console.log('Printing only elements until a boolean is encountered using \'break
 for(let i = 0; i < arr.length; i++) {
     if(typeof arr[i] == 'boolean') break;
     console.log(arr[i], typeof arr[i]);
+}
+
+//Backward loop
+for(let i = arr.length - 1; i >= 0; i--) {
+    console.log(i, arr[i]);
+}
+
+//Nested Loops -> Loop within loop
+for(let exercise = 1; exercise <= 10; exercise++) {
+    for(let reps = 1; reps <= 5; reps++) {
+        console.log(`Exercise ${exercise} Repetition ${reps}`);
+    }
+}
+
+//While Loop
+let i = 0;
+while(i < 10) {
+    console.log(i);
+    i++;
 }

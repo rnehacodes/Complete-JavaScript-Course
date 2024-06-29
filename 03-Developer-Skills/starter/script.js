@@ -1,31 +1,31 @@
 // Remember, we're gonna use strict mode in all scripts now!
 'use strict';
 
-// const xyz = 'text';
-
-// console.log('test live server 123');
-// console.log(xyz);
+//Prettier
+const xyz = 'text';
+console.log('test live server 123');
+console.log(xyz);
 
 //Sample problem
 // PROBLEM:
 // We work for a company building a smart home thermometer. Our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error.
 
-// const temperatures1 = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5],
-//   temperatures2 = [9, 0, 5, 50];
-// var amplitude;
+const temperatures1 = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5],
+  temperatures2 = [9, 0, 5, 50];
+var amplitude;
 
-// var calcAmplitude = (temperatures1, temperatures2) => {
-//   const temperatures = temperatures1.concat(temperatures2);
-//   var min = Number.MAX_VALUE,
-//     max = Number.MIN_VALUE;
-//   for (let i = 0; i < temperatures.length; i++) {
-//     if (typeof temperatures[i] == 'number') {
-//       min = Math.min(min, temperatures[i]);
-//       max = Math.max(max, temperatures[i]);
-//     }
-//   }
-//   return max - min;
-// };
+var calcAmplitude = (temperatures1, temperatures2) => {
+  const temperatures = temperatures1.concat(temperatures2);
+  var min = Number.MAX_VALUE,
+    max = Number.MIN_VALUE;
+  for (let i = 0; i < temperatures.length; i++) {
+    if (typeof temperatures[i] == 'number') {
+      min = Math.min(min, temperatures[i]);
+      max = Math.max(max, temperatures[i]);
+    }
+  }
+  return max - min;
+};
 
 // amplitude = calcAmplitude(temperatures1, temperatures2);
 

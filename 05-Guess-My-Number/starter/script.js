@@ -36,14 +36,14 @@ document.querySelector('.check').addEventListener('click', () => {
   if (guess === correctNumber) {
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.message').textContent = '🥳 Correct Number!🎉';
-    score += 10;
+    // score += 10;
     document.querySelector('.score').textContent = score;
     highScore = score > highScore ? score : highScore;
     document.querySelector('.highscore').textContent = highScore;
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').style.color = '#60b347';
     document.querySelector('.number').textContent = correctNumber;
-    correctNumber = getRandomInt(1, 20);
+    document.querySelector('.check').disabled = true;
   }
   //Checking invalid values
   else if (guess < 1 || guess > 20) {
@@ -61,10 +61,24 @@ document.querySelector('.check').addEventListener('click', () => {
       score -= 5;
       document.querySelector('.score').textContent = score;
     } else {
-        document.querySelector('.message').textContent = 'You lost the game! 🥺';
-        score = 0;
-        document.querySelector('.score').textContent = score;
-        document.getElementById(".check").disabled = true;
+      document.querySelector('.message').textContent = 'You lost the game! 🥺';
+      score = 0;
+      document.querySelector('.score').textContent = score;
+      document.querySelector('.check').disabled = true;
     }
   }
+});
+
+//"Again" button click event
+document.querySelector('.again').addEventListener('click', () => {
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.message').textContent = 'Start guessing...';
+  score = 20;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.number').style.width = '15rem';
+  document.querySelector('.number').style.color = '#333';
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.guess').value = "";
+  correctNumber = getRandomInt(1, 20);
+  document.querySelector('.check').disabled = false;
 });

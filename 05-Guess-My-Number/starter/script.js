@@ -20,6 +20,10 @@ function getRandomInt(min, max) {
   return random;
 }
 
+function updateTextContent (elementSelector, msg) {
+  //
+}
+
 var correctNumber = getRandomInt(1, 20);
 
 var score = Number(document.querySelector('.score').textContent),
@@ -53,11 +57,7 @@ document.querySelector('.check').addEventListener('click', () => {
   //Incorrect number
   else {
     if (score > 5) {
-      if (guess > correctNumber) {
-        document.querySelector('.message').textContent = '📈 Too High!';
-      } else if (guess < correctNumber) {
-        document.querySelector('.message').textContent = '📈 Too Low!';
-      }
+      document.querySelector('.message').textContent = guess > correctNumber ? '📈 Too High!' : '📈 Too Low!';
       score -= 5;
       document.querySelector('.score').textContent = score;
     } else {

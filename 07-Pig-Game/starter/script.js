@@ -15,6 +15,10 @@ class Player {
   updateTotalScore(tScore) {
     this.totalScore.textContent = tScore;
   }
+
+  setActive(isActive) {
+    this.card.classList.toggle('player--active', isActive);
+  }
 }
 
 const players = [
@@ -22,46 +26,23 @@ const players = [
   new Player('.player--1', 'score--1', 'current--1'),
 ];
 
-var i = 0,
-  currentPlayer = players[i],
-  playerCurrentScore = 0;
+var i = 0, currentPlayer = players[i], playerCurrentScore = 0;
 const dice = document.querySelector('.dice');
 const rollDiceBtn = document.querySelector('.btn--roll');
-const holdBtn = document.querySelector('.btn btn--hold');
+const holdBtn = document.querySelector('.btn--hold');
+const newGameBtn = document.querySelector('.btn--new');
 
 function SwitchPlayer(currentPlayer, i, players) {
   currentPlayer.card.classList.remove('player--active');
-  console.log(i, currentPlayer, currentPlayer.card);
   currentPlayer = players[i];
   currentPlayer.card.classList.add('player--active');
-  console.log(i, currentPlayer, currentPlayer.card);
   return currentPlayer;
 }
 
 //Dice Roll Function to display dice number randomly
 function GetDiceRollResult() {
   let num = Math.floor(Math.random() * 6) + 1;
-  console.log('Dice roll result: ' + num);
-  switch (num) {
-    case 1:
-      dice.src = './dice-1.png';
-      break;
-    case 2:
-      dice.src = './dice-2.png';
-      break;
-    case 3:
-      dice.src = './dice-3.png';
-      break;
-    case 4:
-      dice.src = './dice-4.png';
-      break;
-    case 5:
-      dice.src = './dice-5.png';
-      break;
-    case 6:
-      dice.src = './dice-6.png';
-      break;
-  }
+  dice.src = `./dice-${num}.png`;
   return num;
 }
 
@@ -69,34 +50,28 @@ function GetDiceRollResult() {
 
 rollDiceBtn.addEventListener('click', () => {
   let diceResult = GetDiceRollResult();
-  if (diceResult == 1) {
-    console.log('Dice rolled to 1. Player changed');
-    console.log('Value of i before switching players' + i);
+  if (diceResult === 1) {
     i = i < players.length - 1 ? ++i : 0;
     currentPlayer = SwitchPlayer(currentPlayer, i, players);
     console.log('Value of i after switching players' + i);
-    playerCurrentScore = 0;
   } else {
     console.log(currentPlayer.card);
     playerCurrentScore += diceResult;
     console.log(playerCurrentScore);
     currentPlayer.updateCurrentScore(playerCurrentScore);
   }
+  document.querySelector('.dice').classList.remove('hidden');
 });
 
 holdBtn.addEventListener('click', () => {
-  let diceResult = GetDiceRollResult();
-  if (diceResult == 1) {
-    console.log('Dice rolled to 1. Player changed');
-    console.log('Value of i before switching players' + i);
+  let totalScore = Number (currentPlayer.totalScore.textContent);
+  totalScore += Number (currentPlayer.currentScore.textContent);
+  currentPlayer.updateTotalScore(totalScore);
+  currentPlayer.updateCurrentScore(0);
     i = i < players.length - 1 ? ++i : 0;
     currentPlayer = SwitchPlayer(currentPlayer, i, players);
-    console.log('Value of i after switching players' + i);
-    playerCurrentScore = 0;
-  } else {
-    console.log(currentPlayer.card);
-    playerCurrentScore += diceResult;
-    console.log(playerCurrentScore);
-    currentPlayer.updateCurrentScore(playerCurrentScore);
-  }
 });
+
+newGameBtn.addEventListener('click', () => {
+  location.reload();
+})

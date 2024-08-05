@@ -32,32 +32,28 @@ const rollDiceBtn = document.querySelector('.btn--roll');
 const holdBtn = document.querySelector('.btn--hold');
 const newGameBtn = document.querySelector('.btn--new');
 
-function SwitchPlayer(currentPlayer, i, players) {
-  currentPlayer.card.classList.remove('player--active');
+function switchPlayer() {
+  currentPlayer[i].setActive(false);
+  currentPlayer.updateCurrentScore(0);
+  i = (i + 1) % players.length;
   currentPlayer = players[i];
-  currentPlayer.card.classList.add('player--active');
-  return currentPlayer;
+  currentPlayer[i].setActive(true);
 }
 
 //Dice Roll Function to display dice number randomly
-function GetDiceRollResult() {
+function getDiceRollResult() {
   let num = Math.floor(Math.random() * 6) + 1;
   dice.src = `./dice-${num}.png`;
   return num;
 }
 
-// function
-
+//Roll Dice button Click
 rollDiceBtn.addEventListener('click', () => {
-  let diceResult = GetDiceRollResult();
+  let diceResult = getDiceRollResult();
   if (diceResult === 1) {
-    i = i < players.length - 1 ? ++i : 0;
-    currentPlayer = SwitchPlayer(currentPlayer, i, players);
-    console.log('Value of i after switching players' + i);
+    switchPlayer();
   } else {
-    console.log(currentPlayer.card);
     playerCurrentScore += diceResult;
-    console.log(playerCurrentScore);
     currentPlayer.updateCurrentScore(playerCurrentScore);
   }
   document.querySelector('.dice').classList.remove('hidden');
@@ -68,8 +64,7 @@ holdBtn.addEventListener('click', () => {
   totalScore += Number (currentPlayer.currentScore.textContent);
   currentPlayer.updateTotalScore(totalScore);
   currentPlayer.updateCurrentScore(0);
-    i = i < players.length - 1 ? ++i : 0;
-    currentPlayer = SwitchPlayer(currentPlayer, i, players);
+  switchPlayer();
 });
 
 newGameBtn.addEventListener('click', () => {

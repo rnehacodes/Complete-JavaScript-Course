@@ -9,7 +9,6 @@ class Player {
 
   updateCurrentScore(cScore) {
     this.currentScore.textContent = cScore;
-    console.log('score updated');
   }
 
   updateTotalScore(tScore) {
@@ -19,6 +18,10 @@ class Player {
   setActive(isActive) {
     this.card.classList.toggle('player--active', isActive);
   }
+
+  declareWinner() {
+    this.card.classList.add('player--winner');
+  }
 }
 
 const players = [
@@ -26,18 +29,30 @@ const players = [
   new Player('.player--1', 'score--1', 'current--1'),
 ];
 
-var i = 0, currentPlayer = players[i], playerCurrentScore = 0;
+var i = 0,
+  currentPlayer = players[i],
+  playerCurrentScore = 0;
 const dice = document.querySelector('.dice');
 const rollDiceBtn = document.querySelector('.btn--roll');
 const holdBtn = document.querySelector('.btn--hold');
 const newGameBtn = document.querySelector('.btn--new');
 
+//Switch player event
 function switchPlayer() {
-  currentPlayer[i].setActive(false);
+  currentPlayer.setActive(false);
   currentPlayer.updateCurrentScore(0);
   i = (i + 1) % players.length;
   currentPlayer = players[i];
-  currentPlayer[i].setActive(true);
+  currentPlayer.setActive(true);
+  playerCurrentScore = 0;
+}
+
+//Function to show player win event
+function playerWon() {
+  currentPlayer.declareWinner();
+  rollDiceBtn.disabled = true;
+  holdBtn.disabled = true;
+  dice.classList.add('hidden');
 }
 
 //Dice Roll Function to display dice number randomly
@@ -56,17 +71,23 @@ rollDiceBtn.addEventListener('click', () => {
     playerCurrentScore += diceResult;
     currentPlayer.updateCurrentScore(playerCurrentScore);
   }
-  document.querySelector('.dice').classList.remove('hidden');
+  dice.classList.remove('hidden');
 });
 
+//Hold button click event
 holdBtn.addEventListener('click', () => {
-  let totalScore = Number (currentPlayer.totalScore.textContent);
-  totalScore += Number (currentPlayer.currentScore.textContent);
-  currentPlayer.updateTotalScore(totalScore);
+  let totalScore = Number(currentPlayer.totalScore.textContent);
+  totalScore += Number(currentPlayer.currentScore.textContent);
   currentPlayer.updateCurrentScore(0);
-  switchPlayer();
+  currentPlayer.updateTotalScore(totalScore);
+  if (totalScore >= 10) {
+    playerWon();
+  } else {
+    switchPlayer();
+  }
 });
 
+//New game button click event
 newGameBtn.addEventListener('click', () => {
   location.reload();
-})
+});

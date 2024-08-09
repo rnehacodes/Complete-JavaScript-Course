@@ -80,7 +80,7 @@ holdBtn.addEventListener('click', () => {
   totalScore += Number(currentPlayer.currentScore.textContent);
   currentPlayer.updateCurrentScore(0);
   currentPlayer.updateTotalScore(totalScore);
-  if (totalScore >= 10) {
+  if (totalScore >= 100) {
     playerWon();
   } else {
     switchPlayer();

@@ -45,46 +45,55 @@
 
 // var addArrow = (a, b) => a + b;
 
-//this keyword
-console.log(this);
+// //this keyword
+// console.log(this);
 
-//Normal Function
-const sumNums = function(a, b) {
-    console.log(a + b);
-    console.log(this);
+// //Normal Function
+// const sumNums = function(a, b) {
+//     console.log(a + b);
+//     console.log(this);
+// }
+
+// sumNums(4, 6);
+
+// //Arrow Function
+// const diffNums = (x, y) => {
+//     console.log(x - y);
+//     console.log(this);
+// }
+
+// diffNums(6, 8);
+
+// const employee = {
+//     employeeName : 'Anna',
+//     ID : 45,
+//     getID : function () {
+//         console.log("ID: " + this.ID);
+//         console.log(this);
+//     },
+//     getName : function() {
+//         console.log("Name: " + this.employeeName);
+//     }
+// }
+
+// employee.getID();
+
+// const client = {
+//     clientName : "Ditto",
+//     ID : 77
+// } 
+
+// console.log(client);
+
+// client.getID = employee.getID;
+
+// client.getID();
+
+//Arguments Keyword
+var printFunction = (x) => {
+    console.log(arguments);
+    "Text given -> " + x;
 }
 
-sumNums(4, 6);
+printFunction("test123");
 
-//Arrow Function
-const diffNums = (x, y) => {
-    console.log(x - y);
-    console.log(this);
-}
-
-diffNums(6, 8);
-
-const employee = {
-    employeeName : 'Anna',
-    ID : 45,
-    getID : function () {
-        console.log("ID: " + this.ID);
-        console.log(this);
-    },
-    getName : function() {
-        console.log("Name: " + this.employeeName);
-    }
-}
-
-employee.getID();
-
-const client = {
-    clientName : "Ditto",
-    ID : 77
-} 
-
-console.log(client);
-
-client.getID = employee.getID;
-
-client.getID();

@@ -1,133 +1,150 @@
 'use strict';
 
-//Scoping
-let output = 'test';
-console.log(output);
+// //Scoping
+// let output = 'test';
+// console.log(output);
 
-function calcAge(birthYear) {
-  const age = 2037 - birthYear;
-  console.log(firstName);
-  console.log(output);
+// function calcAge(birthYear) {
+//   const age = 2037 - birthYear;
+//   console.log(firstName);
+//   console.log(output);
 
-  output = 'updated';
+//   output = 'updated';
 
-  console.log(output);
-}
+//   console.log(output);
+// }
 
-const firstName = 'Jonas';
-calcAge(1991);
-console.log(output);
+// const firstName = 'Jonas';
+// calcAge(1991);
+// console.log(output);
 
+// //Hoisting
 
-//Hoisting
+// //Variable Hoisting
+// console.log(thing);
+// console.log(color);
+// console.log(category);
 
-//Variable Hoisting
-console.log(thing);
-console.log(color);
-console.log(category);
+// var thing = 'Apple';
+// let color = 'red';
+// const category = 'fruit';
 
-var thing = 'Apple';
-let color = 'red';
-const category = 'fruit';
+// //Functions Hoisting
+// console.log(addNums(4, 5));
+// console.log(addVals(4, 5));
+// console.log(addArrow(4, 5));
 
-//Functions Hoisting
-console.log(addNums(4, 5));
-console.log(addVals(4, 5));
-console.log(addArrow(4, 5));
+// function addNums(a, b) {
+//   return a + b;
+// }
 
-function addNums(a, b) {
-  return a + b;
-}
+// var addVals = function(a, b) {
+//   return a + b;
+// }
 
-var addVals = function(a, b) {
-  return a + b;
-}
+// var addArrow = (a, b) => a + b;
 
-var addArrow = (a, b) => a + b;
+// //this keyword
+// console.log(this);
 
-//this keyword
-console.log(this);
+// //Normal Function
+// const sumNums = function(a, b) {
+//     console.log(a + b);
+//     console.log(this);
+// }
 
-//Normal Function
-const sumNums = function(a, b) {
-    console.log(a + b);
-    console.log(this);
-}
+// sumNums(4, 6);
 
-sumNums(4, 6);
+// //Arrow Function
+// const diffNums = (x, y) => {
+//     console.log(x - y);
+//     console.log(this);
+// }
 
-//Arrow Function
-const diffNums = (x, y) => {
-    console.log(x - y);
-    console.log(this);
-}
+// diffNums(6, 8);
 
-diffNums(6, 8);
+// const employee = {
+//     employeeName : 'Anna',
+//     ID : 45,
+//     getID : function () {
+//         console.log("ID: " + this.ID);
+//         console.log(this);
+//     },
+//     getName : function() {
+//         console.log("Name: " + this.employeeName);
+//     }
+// }
 
-const employee = {
-    employeeName : 'Anna',
-    ID : 45,
-    getID : function () {
-        console.log("ID: " + this.ID);
-        console.log(this);
-    },
-    getName : function() {
-        console.log("Name: " + this.employeeName);
-    }
-}
+// employee.getID();
 
-employee.getID();
+// const client = {
+//     clientName : "Ditto",
+//     ID : 77
+// }
 
-const client = {
-    clientName : "Ditto",
-    ID : 77
-} 
+// console.log(client);
 
-console.log(client);
+// client.getID = employee.getID;
 
-client.getID = employee.getID;
+// client.getID();
 
-client.getID();
+// //Arguments Keyword
+// var printFunction = (x) => {
+//     console.log(arguments);
+//     "Text given -> " + x;
+// }
 
-//Arguments Keyword
-var printFunction = (x) => {
-    console.log(arguments);
-    "Text given -> " + x;
-}
+// printFunction("test123");
 
-printFunction("test123");
+// console.log(this);
+// console.log(this.year);
 
-console.log(this);
-console.log(this.year);
+// var gender = 'Male';
 
-var gender = 'Male';
-
-const employee = {
-    firstName: "Alex",
-    age: 20,
-    getGender: function() {
-        console.log(this.gender);
-    }
-}
-console.log(employee);
-console.log(employee.firstName);
-console.log(employee.gender);
-console.log(employee.getGender);
+// const employee = {
+//     firstName: "Alex",
+//     age: 20,
+//     getGender: function() {
+//         console.log(this.gender);
+//     }
+// }
+// console.log(employee);
+// console.log(employee.firstName);
+// console.log(employee.gender);
+// console.log(employee.getGender);
 
 //Primitives Vs Reference Values
+//Primitive Types
 let oldAge = 29;
 let currentAge = oldAge + 1;
 oldAge = 35;
+
 console.log(oldAge, currentAge);
 
-
+//Reference Types
 let order1 = {
     id: 12345,
-    month: "Jan"
-}
-
-let order2 = order1;
+    month: 'Jan',
+  },
+  order2 = order1;
 
 order2.id = 54321;
-
 console.log(order1, order2);
+order1.id = 12345;
+
+order2 = Object.assign({}, order1);
+order2.id = 54321;
+console.log(order1, order2);
+
+const restruant1 = {
+    restrauntName: 'Restraunt #1',
+    state: 'Delhi',
+    menuItems: ["Chhole Bhature", "Tikki", "Pizza"]
+}
+console.log(restruant1);
+
+const restraunt2 = Object.assign({}, restruant1);
+restraunt2.restrauntName = 'Restraunt #2';
+restraunt2.state = 'Bihar';
+restraunt2.menuItems = ['Litta Chokha', 'Thekua', 'Sattu', 'Dal Pittha'];
+console.log(restraunt2);

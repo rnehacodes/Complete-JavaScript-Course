@@ -28,5 +28,15 @@ const restaurant = {
   },
 };
 
-const [categorya, ,categoryb] = restaurant.categories;
+const [categorya, , categoryb] = restaurant.categories;
 console.log(categorya, categoryb);
+
+const { name, openingHours, mainMenu } = restaurant;
+console.log(name, openingHours, mainMenu);
+
+const {
+  name : restaurantName,
+  openingHours : hours,
+  starterMenu : menu1
+} = restaurant;
+console.log(restaurantName, hours, menu1);

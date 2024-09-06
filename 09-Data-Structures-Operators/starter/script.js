@@ -26,10 +26,26 @@ const restaurant = {
       close: 24,
     },
   },
+  order: function(starterIndex, mainMenuIndex) {
+    return `Order placed for ${this.starterMenu[starterIndex]} starter & ${this.mainMenu[this.mainMenuIndex]} main dish.`;
+  }
 };
 
-const [categorya, , categoryb] = restaurant.categories;
-console.log(categorya, categoryb);
+// let customerOrder = prompt(`Welcome to ${restaurant.name}!!!!! \nHere is the Starter menu: \n${restaurant.starterMenu}
+// & here is the main menu:
+// ${restaurant.mainMenu}
+
+// What would you like to order? (Enter your order seperated by comma - one from each menu i.e. starter & main menu.)`
+// );
+
+// console.log(customerOrder);
+
+// customerOrder = customerOrder.split(",");
+// console.log(customerOrder);
+
+
+const [categorya, ,categoryb] = restaurant.categories;
+console.log("Categories : " + categorya + " & " + categoryb);
 
 const { name, openingHours, mainMenu } = restaurant;
 console.log(name, openingHours, mainMenu);
@@ -40,3 +56,15 @@ const {
   starterMenu : menu1
 } = restaurant;
 console.log(restaurantName, hours, menu1);
+
+const { menu = "FullMenu", starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+console.log(openingHours);
+const {fri : {open : o, close: c}} = openingHours;
+console.log(o, c);
+
+restaurant.orderDelivery({
+  time: '10:00 PM',
+  address: ''
+})

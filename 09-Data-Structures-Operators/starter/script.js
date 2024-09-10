@@ -31,6 +31,10 @@ const restaurant = {
       this.mainMenu[this.mainMenuIndex]
     } main dish.`;
   },
+
+  orderPasta: function(ing1, ing2, ing3) {
+    console.log(`Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`);
+  }
 };
 
 // let customerOrder = prompt(`Welcome to ${restaurant.name}!!!!! \nHere is the Starter menu: \n${restaurant.starterMenu}
@@ -296,54 +300,70 @@ const books = [
   },
 ];
 
-//Array Destructuring Assignment
-const [firstBook, , , , , , lastBook] = books;
+// //Array Destructuring Assignment
+// const [firstBook, , , , , , lastBook] = books;
+// console.log(firstBook, lastBook);
 
-console.log(firstBook, lastBook);
+// const [, , thirdBook] = books;
+// console.log(thirdBook);
 
-const [, , thirdBook] = books;
-console.log(thirdBook);
+// const ratings = [
+//   ['rating', 4.19],
+//   ['ratingsCount', 144584],
+// ];
+// const [[, rating], [, ratingsCount]] = ratings;
+// console.log(rating, ratingsCount);
 
-const ratings = [
-  ['rating', 4.19],
-  ['ratingsCount', 144584],
-];
-const [[, rating], [, ratingsCount]] = ratings;
-console.log(rating, ratingsCount);
+// const ratingStars = [63405, 1808];
+// const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+// console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
 
-const ratingStars = [63405, 1808];
-const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
-console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
+// //Object Destructuring Assignment
+// const { title, author, ISBN } = books[0];
+// console.log(title, author, ISBN);
 
-//Object Destructuring Assignment
-const { title, author, ISBN } = books[0];
-console.log(title, author, ISBN);
+// const { keywords: tags } = books[0];
+// console.log(tags);
 
-const { keywords: tags } = books[0];
-console.log(tags);
+// console.log(books[6], books[0]);
+// const { language, programmingLanguage = 'unknown' } = books[6];
+// console.log(language, programmingLanguage);
 
-console.log(books[6], books[0]);
-const { language, programmingLanguage = 'unknown' } = books[6];
-console.log(language, programmingLanguage);
+// let bookTitle = 'unknown';
+// let bookAuthor = 'unknown';
+// ({ title: bookTitle, author: bookAuthor } = books[0]);
+// console.log(bookTitle, bookAuthor);
 
-let bookTitle = 'unknown';
-let bookAuthor = 'unknown';
-({ title: bookTitle, author: bookAuthor } = books[0]);
-console.log(bookTitle, bookAuthor);
+// const {
+//   thirdParty: {
+//     goodreads: { rating: bookRating },
+//   },
+// } = books[0];
+// console.log(bookRating);
 
-const {
-  thirdParty: {
-    goodreads: { rating: bookRating },
-  },
-} = books[0];
-console.log(bookRating);
+// function printBookInfo({ title, author, year = 'year unknown' }) {
+//   console.log(`${title} by ${author}, ${year}`);
+// }
+// printBookInfo({
+//   title: 'Algorithms',
+//   author: 'Robert Sedgewick',
+//   year: '2011',
+// });
+// printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
 
-function printBookInfo({ title, author, year = 'year unknown' }) {
-  console.log(`${title} by ${author}, ${year}`);
-}
-printBookInfo({
-  title: 'Algorithms',
-  author: 'Robert Sedgewick',
-  year: '2011',
-});
-printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
+// //The Spread Operator
+const combinedMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(`Starter Menu - ${restaurant.starterMenu}\nMain Menu - ${restaurant.mainMenu}\nCombined Menu - ${combinedMenu}`);
+
+//Using Spread Operator to convert string into a char array
+const str = "This is an Apple";
+const letter = [...str];
+console.log(letter);
+console.log(letter[8]);
+
+const ingredients = [prompt('You can get a custom pasta made up of yoru 3 favorite ingredients!!!\nPlease enter your first ingredient:'), prompt('Second Ingredient:'), prompt('Third Ingredient:')];
+restaurant.orderPasta(...ingredients);
+
+//Spread Operator with objects
+const newRestaurant = {foundedBy : 'Gustav', ...restaurant, famousDish : 'Ratatouille'};
+console.log(restaurant, newRestaurant);

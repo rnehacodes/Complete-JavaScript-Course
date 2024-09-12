@@ -34,6 +34,10 @@ const restaurant = {
 
   orderPasta: function(ing1, ing2, ing3) {
     console.log(`Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`);
+  },
+
+  orderPizza: function(main1, main2, main3, ...customToppings) {
+    console.log(`Your delicious pizza with ${main1}, ${main2}, ${main3} & your favorite toppings ${customToppings} is ready!!!!!!`);
   }
 };
 
@@ -351,19 +355,118 @@ const books = [
 // });
 // printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
 
-// //The Spread Operator
-const combinedMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(`Starter Menu - ${restaurant.starterMenu}\nMain Menu - ${restaurant.mainMenu}\nCombined Menu - ${combinedMenu}`);
+// //~~~~~~~~~~~~~~~~~~~~~~~~~~~~The Spread Operator~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// const combinedMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(`Starter Menu - ${restaurant.starterMenu}\nMain Menu - ${restaurant.mainMenu}\nCombined Menu - ${combinedMenu}`);
 
-//Using Spread Operator to convert string into a char array
-const str = "This is an Apple";
-const letter = [...str];
-console.log(letter);
-console.log(letter[8]);
+// //Using Spread Operator to convert string into a char array
+// const str = "This is an Apple";
+// const letter = [...str];
+// console.log(letter);
+// console.log(letter[8]);
 
-const ingredients = [prompt('You can get a custom pasta made up of yoru 3 favorite ingredients!!!\nPlease enter your first ingredient:'), prompt('Second Ingredient:'), prompt('Third Ingredient:')];
-restaurant.orderPasta(...ingredients);
+// const ingredients = [prompt('You can get a custom pasta made up of your 3 favorite ingredients!!!\nPlease enter your first ingredient:'), prompt('Second Ingredient:'), prompt('Third Ingredient:')];
+// restaurant.orderPasta(...ingredients);
 
-//Spread Operator with objects
-const newRestaurant = {foundedBy : 'Gustav', ...restaurant, famousDish : 'Ratatouille'};
-console.log(restaurant, newRestaurant);
+// //Spread Operator with objects
+// const newRestaurant = {foundedBy : 'Gustav', ...restaurant, famousDish : 'Ratatouille'};
+// console.log(restaurant, newRestaurant);
+
+// // Rest pattern & parameters
+// const nums = [3, 4, 5, 1, 6, 8, 9];
+// const [a, b, ...remainingNums] = [...nums];
+// console.log(a, b, remainingNums);
+
+// const arr1 = [1, 2, 3];
+// const arr2 = arr1;
+// console.log(arr1, arr2);
+// arr2[1] = 4;
+// console.log(arr1, arr2);
+
+// function add(...nums) {
+//   let sum = 0;
+//   nums.forEach(num => {
+//     sum += num;
+//   });
+//   console.log(sum);
+// }
+
+// add(...remainingNums)
+
+// const [pizza, ,risotto, ...otherFoodItems] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza, risotto, otherFoodItems);
+
+// const {thu, ...otherDays} = {...restaurant.openingHours};
+// console.log(thu, otherDays);
+
+// const mainPizzaIngredients = ["Bread", "Cheese", "Sauce"];
+// restaurant.orderPizza(...mainPizzaIngredients, prompt("Please enter your favorite toppings.\nEnter the 1st topping!"), prompt("Enter the 2nd topping!"), prompt("Enter the 3rd topping!"));
+
+//Short-Circuiting
+console.log('----------OR Operator----------');
+console.log(0 || 'test');
+console.log(-1 || 0);
+console.log(-2 || undefined);
+
+let guest1 = 6;
+guest1 = guest1 ? guest1 : 15;
+console.log(guest1);
+
+console.log('----------AND Operator----------');
+console.log(0 && 'test');
+console.log(-1 || 0);
+console.log(-2 || undefined);
+
+if(restaurant.orderPizza) { //Check if there exists a orderPizza method exists for restaurant object with **IF condition**
+  restaurant.orderPizza('tomato', 'corn', 'sauce');
+}
+
+restaurant.orderPizza &&= restaurant.orderPizza('basil', 'oregano', 'red sauce')  //Check if there exists a orderPizza method exists for restaurant object with **short-circuiting AND operator**
+
+//Nullish Coalescing Operator -> Works like OR operator but only for nullish values i.e. null or undefined and it ignores 0 or '' values i.e. does not consider them as falsy values
+
+let newNumOR = 0;
+newNumOR = newNumOR || 10;
+console.log(newNumOR);
+
+const a = 0;
+const newNumNull = a ?? 10;
+console.log(newNumNull);
+
+//Logical Assingment Operator
+const rest1 = {
+  name: "Bikanerwala",
+  hasPluxee: "Yes"
+}, rest2 = {
+  name: "Haldiram",
+  ratings: 0
+}
+console.log(rest1, rest2);
+
+// //Short Circuiting using OR
+// rest1.hasPluxee = rest1.hasPluxee || "No";
+// rest2.hasPluxee = rest2.hasPluxee || "No";
+// console.log(rest1, rest2);
+
+// rest1.ratings = rest1.ratings || 3;
+// rest2.ratings = rest2.ratings || 3;
+// console.log(rest1, rest2);
+
+// //Short Circuiting using AND
+// rest1.hasPluxee = rest1.hasPluxee && "No";
+// rest2.hasPluxee = rest2.hasPluxee && "No";
+// console.log(rest1, rest2);
+
+// rest1.ratings = rest1.ratings && 3;
+// rest2.ratings = rest2.ratings && 3;
+// console.log(rest1, rest2);
+
+// //Short Circuiting using nullish coaleascing operator
+// rest1.hasPluxee = rest1.hasPluxee ?? "No";
+// rest2.hasPluxee = rest2.hasPluxee ?? "No";
+// console.log(rest1, rest2);
+
+// rest1.ratings = rest1.ratings ?? 3;
+// rest2.ratings = rest2.ratings ?? 3;
+// console.log(rest1, rest2);
+

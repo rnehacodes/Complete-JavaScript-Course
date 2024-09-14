@@ -434,7 +434,7 @@ const newNumNull = a ?? 10;
 console.log(newNumNull);
 
 //Logical Assingment Operator
-const rest1 = {
+let rest1 = {
   name: "Bikanerwala",
   hasPluxee: "Yes"
 }, rest2 = {
@@ -443,30 +443,47 @@ const rest1 = {
 }
 console.log(rest1, rest2);
 
-// //Short Circuiting using OR
-// rest1.hasPluxee = rest1.hasPluxee || "No";
-// rest2.hasPluxee = rest2.hasPluxee || "No";
-// console.log(rest1, rest2);
+//Short Circuiting using OR
+rest1.hasPluxee = rest1.hasPluxee || "No";
+rest2.hasPluxee = rest2.hasPluxee || "No";
+console.log(rest1, rest2);
 
-// rest1.ratings = rest1.ratings || 3;
-// rest2.ratings = rest2.ratings || 3;
-// console.log(rest1, rest2);
+rest1.ratings = rest1.ratings || 3;
+rest2.ratings = rest2.ratings || 3;
+console.log(rest1, rest2);
 
-// //Short Circuiting using AND
-// rest1.hasPluxee = rest1.hasPluxee && "No";
-// rest2.hasPluxee = rest2.hasPluxee && "No";
-// console.log(rest1, rest2);
+//Short Circuiting using AND
+rest1.hasPluxee = rest1.hasPluxee && "No";
+rest2.hasPluxee = rest2.hasPluxee && "No";
+console.log(rest1, rest2);
 
-// rest1.ratings = rest1.ratings && 3;
-// rest2.ratings = rest2.ratings && 3;
-// console.log(rest1, rest2);
+rest1.ratings = rest1.ratings && 3;
+rest2.ratings = rest2.ratings && 3;
+console.log(rest1, rest2);
 
-// //Short Circuiting using nullish coaleascing operator
-// rest1.hasPluxee = rest1.hasPluxee ?? "No";
-// rest2.hasPluxee = rest2.hasPluxee ?? "No";
-// console.log(rest1, rest2);
+//Short Circuiting using nullish coalescing operator
+rest1.hasPluxee = rest1.hasPluxee ?? "No";
+rest2.hasPluxee = rest2.hasPluxee ?? "No";
+console.log(rest1, rest2);
 
-// rest1.ratings = rest1.ratings ?? 3;
-// rest2.ratings = rest2.ratings ?? 3;
-// console.log(rest1, rest2);
+rest1.ratings = rest1.ratings ?? 3;
+rest2.ratings = rest2.ratings ?? 3;
+console.log(rest1, rest2);
 
+let rest3 = {
+  name: "Dominos",
+  hasPluxee: "No"
+}, rest4 = {
+  name: "Burger King",
+  ratings: 0
+}
+console.log(rest3, rest4);
+
+//Logical Assingment Operators
+rest3.ratings ??= 3;
+rest4.ratings ??= 5;
+console.log(rest3, rest4);
+
+rest3.hasPluxee &&= 'Yes';
+rest4.hasPluxee &&= null;
+console.log(rest3, rest4);

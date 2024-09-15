@@ -403,87 +403,162 @@ const books = [
 // restaurant.orderPizza(...mainPizzaIngredients, prompt("Please enter your favorite toppings.\nEnter the 1st topping!"), prompt("Enter the 2nd topping!"), prompt("Enter the 3rd topping!"));
 
 //Short-Circuiting
-console.log('----------OR Operator----------');
-console.log(0 || 'test');
-console.log(-1 || 0);
-console.log(-2 || undefined);
+// console.log('----------OR Operator----------');
+// console.log(0 || 'test');
+// console.log(-1 || 0);
+// console.log(-2 || undefined);
 
-let guest1 = 6;
-guest1 = guest1 ? guest1 : 15;
-console.log(guest1);
+// let guest1 = 6;
+// guest1 = guest1 ? guest1 : 15;
+// console.log(guest1);
 
-console.log('----------AND Operator----------');
-console.log(0 && 'test');
-console.log(-1 || 0);
-console.log(-2 || undefined);
+// console.log('----------AND Operator----------');
+// console.log(0 && 'test');
+// console.log(-1 || 0);
+// console.log(-2 || undefined);
 
-if(restaurant.orderPizza) { //Check if there exists a orderPizza method exists for restaurant object with **IF condition**
-  restaurant.orderPizza('tomato', 'corn', 'sauce');
+// if(restaurant.orderPizza) { //Check if there exists a orderPizza method exists for restaurant object with **IF condition**
+//   restaurant.orderPizza('tomato', 'corn', 'sauce');
+// }
+
+// restaurant.orderPizza &&= restaurant.orderPizza('basil', 'oregano', 'red sauce')  //Check if there exists a orderPizza method exists for restaurant object with **short-circuiting AND operator**
+
+// //Nullish Coalescing Operator -> Works like OR operator but only for nullish values i.e. null or undefined and it ignores 0 or '' values i.e. does not consider them as falsy values
+
+// let newNumOR = 0;
+// newNumOR = newNumOR || 10;
+// console.log(newNumOR);
+
+// const a = 0;
+// const newNumNull = a ?? 10;
+// console.log(newNumNull);
+
+// //Logical Assingment Operator
+// let rest1 = {
+//   name: "Bikanerwala",
+//   hasPluxee: "Yes"
+// }, rest2 = {
+//   name: "Haldiram",
+//   ratings: 0
+// }
+// console.log(rest1, rest2);
+
+// //Short Circuiting using OR
+// rest1.hasPluxee = rest1.hasPluxee || "No";
+// rest2.hasPluxee = rest2.hasPluxee || "No";
+// console.log(rest1, rest2);
+
+// rest1.ratings = rest1.ratings || 3;
+// rest2.ratings = rest2.ratings || 3;
+// console.log(rest1, rest2);
+
+// //Short Circuiting using AND
+// rest1.hasPluxee = rest1.hasPluxee && "No";
+// rest2.hasPluxee = rest2.hasPluxee && "No";
+// console.log(rest1, rest2);
+
+// rest1.ratings = rest1.ratings && 3;
+// rest2.ratings = rest2.ratings && 3;
+// console.log(rest1, rest2);
+
+// //Short Circuiting using nullish coalescing operator
+// rest1.hasPluxee = rest1.hasPluxee ?? "No";
+// rest2.hasPluxee = rest2.hasPluxee ?? "No";
+// console.log(rest1, rest2);
+
+// rest1.ratings = rest1.ratings ?? 3;
+// rest2.ratings = rest2.ratings ?? 3;
+// console.log(rest1, rest2);
+
+// let rest3 = {
+//   name: "Dominos",
+//   hasPluxee: "No"
+// }, rest4 = {
+//   name: "Burger King",
+//   ratings: 0
+// }
+// console.log(rest3, rest4);
+
+// //Logical Assingment Operators
+// rest3.ratings ??= 3;
+// rest4.ratings ??= 5;
+// console.log(rest3, rest4);
+
+// rest3.hasPluxee &&= 'Yes';
+// rest4.hasPluxee &&= null;
+// console.log(rest3, rest4);
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+/* 
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+GOOD LUCK 😀
+*/
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const scores = game.scored;
+for(let i = 0; i < scores.length; i++) {
+  console.log(`Goal ${i + 1}: ${scores[i]}`);
 }
 
-restaurant.orderPizza &&= restaurant.orderPizza('basil', 'oregano', 'red sauce')  //Check if there exists a orderPizza method exists for restaurant object with **short-circuiting AND operator**
-
-//Nullish Coalescing Operator -> Works like OR operator but only for nullish values i.e. null or undefined and it ignores 0 or '' values i.e. does not consider them as falsy values
-
-let newNumOR = 0;
-newNumOR = newNumOR || 10;
-console.log(newNumOR);
-
-const a = 0;
-const newNumNull = a ?? 10;
-console.log(newNumNull);
-
-//Logical Assingment Operator
-let rest1 = {
-  name: "Bikanerwala",
-  hasPluxee: "Yes"
-}, rest2 = {
-  name: "Haldiram",
-  ratings: 0
-}
-console.log(rest1, rest2);
-
-//Short Circuiting using OR
-rest1.hasPluxee = rest1.hasPluxee || "No";
-rest2.hasPluxee = rest2.hasPluxee || "No";
-console.log(rest1, rest2);
-
-rest1.ratings = rest1.ratings || 3;
-rest2.ratings = rest2.ratings || 3;
-console.log(rest1, rest2);
-
-//Short Circuiting using AND
-rest1.hasPluxee = rest1.hasPluxee && "No";
-rest2.hasPluxee = rest2.hasPluxee && "No";
-console.log(rest1, rest2);
-
-rest1.ratings = rest1.ratings && 3;
-rest2.ratings = rest2.ratings && 3;
-console.log(rest1, rest2);
-
-//Short Circuiting using nullish coalescing operator
-rest1.hasPluxee = rest1.hasPluxee ?? "No";
-rest2.hasPluxee = rest2.hasPluxee ?? "No";
-console.log(rest1, rest2);
-
-rest1.ratings = rest1.ratings ?? 3;
-rest2.ratings = rest2.ratings ?? 3;
-console.log(rest1, rest2);
-
-let rest3 = {
-  name: "Dominos",
-  hasPluxee: "No"
-}, rest4 = {
-  name: "Burger King",
-  ratings: 0
-}
-console.log(rest3, rest4);
-
-//Logical Assingment Operators
-rest3.ratings ??= 3;
-rest4.ratings ??= 5;
-console.log(rest3, rest4);
-
-rest3.hasPluxee &&= 'Yes';
-rest4.hasPluxee &&= null;
-console.log(rest3, rest4);
+const odds = Object.values(game.odds);
+let sum = 0;
+for (const odd of odds) sum += odd;
+console.log(`Average Odd ${sum / odds.length}`);

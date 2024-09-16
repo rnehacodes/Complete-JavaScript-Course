@@ -559,6 +559,22 @@ for(let i = 0; i < scores.length; i++) {
 }
 
 const odds = Object.values(game.odds);
+console.log(odds); //printing odds array
 let sum = 0;
 for (const odd of odds) sum += odd;
 console.log(`Average Odd ${sum / odds.length}`);
+
+for(const[team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
+
+}
+
+let scorers = {};
+const players = game.scored;
+for(const player of players) {
+  // if(${players[i]})
+  // scorers[player] = player in scorers ? ++scorers[player] : 1;
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);

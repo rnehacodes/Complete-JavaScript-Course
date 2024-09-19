@@ -32,13 +32,17 @@ const restaurant = {
     } main dish.`;
   },
 
-  orderPasta: function(ing1, ing2, ing3) {
-    console.log(`Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`);
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`
+    );
   },
 
-  orderPizza: function(main1, main2, main3, ...customToppings) {
-    console.log(`Your delicious pizza with ${main1}, ${main2}, ${main3} & your favorite toppings ${customToppings} is ready!!!!!!`);
-  }
+  orderPizza: function (main1, main2, main3, ...customToppings) {
+    console.log(
+      `Your delicious pizza with ${main1}, ${main2}, ${main3} & your favorite toppings ${customToppings} is ready!!!!!!`
+    );
+  },
 };
 
 // let customerOrder = prompt(`Welcome to ${restaurant.name}!!!!! \nHere is the Starter menu: \n${restaurant.starterMenu}
@@ -512,69 +516,167 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 GOOD LUCK 😀
 */
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// const scores = game.scored;
+// for(let i = 0; i < scores.length; i++) {
+//   console.log(`Goal ${i + 1}: ${scores[i]}`);
+// }
+
+// const odds = Object.values(game.odds);
+// console.log(odds); //printing odds array
+// let sum = 0;
+// for (const odd of odds) sum += odd;
+// console.log(`Average Odd ${sum / odds.length}`);
+
+// for(const[team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr}: ${odd}`);
+
+// }
+
+// let scorers = {};
+// const players = game.scored;
+// for(const player of players) {
+//   // if(${players[i]})
+//   // scorers[player] = player in scorers ? ++scorers[player] : 1;
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers);
+
+//For-of Loop
+// console.log(
+//   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~For-of Loop~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+// );
+// const menuArray = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+// for (const item of menuArray) console.log(item);
+
+// console.log('Menu array entries:\n', [...menuArray.entries()]);
+
+// let i = 0;
+// for(const item of menuArray.entries()) {
+//   console.log(`Item ${i}`);
+//   for(const e of item) console.log(e); i++;
+// };
+
+// for (const [i, el] of menuArray.entries()) { //Destructuring array
+//   console.log(`Item ${i + 1}: ${el}`);
+// }
+
+//Enhanced Object Literals
+console.log(
+  '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Enhanced Object Literals~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+);
+
+//Computing property names
+const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+console.log(weekdays);
+
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+  [`Rest of the ${weekdays.length - 3} days`]: {
+    open: 0, // Open 24 hours
+    close: 24,
   },
 };
+console.log(openingHours);
 
-const scores = game.scored;
-for(let i = 0; i < scores.length; i++) {
-  console.log(`Goal ${i + 1}: ${scores[i]}`);
+const restaurant2 = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  openingHours, //Enhanced ES6 object literal enhancement
+  order: function (starterIndex, mainMenuIndex) {
+    return `Order placed for ${this.starterMenu[starterIndex]} starter & ${
+      this.mainMenu[this.mainMenuIndex]
+    } main dish.`;
+  },
+
+  //Old way of writing methods/function of an object
+  // orderPasta: function (ing1, ing2, ing3) {
+  //   console.log(
+  //     `Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`
+  //   );
+  // },
+
+  //Enhanced way of writing methods/function of an object
+  orderPasta(ing1, ing2, ing3) {
+    console.log(
+      `Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`
+    );
+  },
+
+  orderPizza: function (main1, main2, main3, ...customToppings) {
+    console.log(
+      `Your delicious pizza with ${main1}, ${main2}, ${main3} & your favorite toppings ${customToppings} is ready!!!!!!`
+    );
+  }
+};
+
+console.log(restaurant2);
+
+//Optional Chaining
+console.log(
+  '~~~~~~~~~~~~~Optional Chaining~~~~~~~~~~~~~~~~~~~'
+);
+console.log(restaurant?.openingHours?.mon);
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for(const day of days) {
+  const time = restaurant.openingHours?.[day]?.open ?? '';
+  const status = time ? `open at ${time}` : 'closed' ;
+  console.log(`We ${status || 'test'} on ${day}`);
 }
-
-const odds = Object.values(game.odds);
-console.log(odds); //printing odds array
-let sum = 0;
-for (const odd of odds) sum += odd;
-console.log(`Average Odd ${sum / odds.length}`);
-
-for(const[team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr}: ${odd}`);
-
-}
-
-let scorers = {};
-const players = game.scored;
-for(const player of players) {
-  // if(${players[i]})
-  // scorers[player] = player in scorers ? ++scorers[player] : 1;
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
-console.log(scorers);

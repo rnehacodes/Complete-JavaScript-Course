@@ -680,3 +680,8 @@ for(const day of days) {
   const status = time ? `open at ${time}` : 'closed' ;
   console.log(`We ${status || 'test'} on ${day}`);
 }
+
+//Looping Objects
+console.log(
+  '~~~~~~~~~~~~~Looping Objects~~~~~~~~~~~~~~~~~~~'
+);

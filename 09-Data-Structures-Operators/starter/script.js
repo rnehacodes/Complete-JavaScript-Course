@@ -22,8 +22,8 @@ const restaurant = {
       close: 23,
     },
     sat: {
-      open: 0, // Open 24 hours
-      close: 24,
+      open: 3, // Open 20 hours
+      close: 23,
     },
   },
   order: function (starterIndex, mainMenuIndex) {
@@ -604,84 +604,87 @@ GOOD LUCK 😀
 // }
 
 //Enhanced Object Literals
-console.log(
-  '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Enhanced Object Literals~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-);
+// console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Enhanced Object Literals~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
 //Computing property names
-const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-console.log(weekdays);
+// const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+// console.log(weekdays);
 
-const openingHours = {
-  [weekdays[3]]: {
-    open: 12,
-    close: 22,
-  },
-  [weekdays[4]]: {
-    open: 11,
-    close: 23,
-  },
-  [weekdays[5]]: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-  [`Rest of the ${weekdays.length - 3} days`]: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-};
-console.log(openingHours);
+// const openingHours = {
+//   [weekdays[3]]: {
+//     open: 12,
+//     close: 22,
+//   },
+//   [weekdays[4]]: {
+//     open: 11,
+//     close: 23,
+//   },
+//   [weekdays[5]]: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+//   [`Rest of the ${weekdays.length - 3} days`]: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
+// console.log(openingHours);
 
-const restaurant2 = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours, //Enhanced ES6 object literal enhancement
-  order: function (starterIndex, mainMenuIndex) {
-    return `Order placed for ${this.starterMenu[starterIndex]} starter & ${
-      this.mainMenu[this.mainMenuIndex]
-    } main dish.`;
-  },
+// const restaurant2 = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+//   openingHours, //Enhanced ES6 object literal enhancement
+//   order: function (starterIndex, mainMenuIndex) {
+//     return `Order placed for ${this.starterMenu[starterIndex]} starter & ${
+//       this.mainMenu[this.mainMenuIndex]
+//     } main dish.`;
+//   },
 
-  //Old way of writing methods/function of an object
-  // orderPasta: function (ing1, ing2, ing3) {
-  //   console.log(
-  //     `Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`
-  //   );
-  // },
+//   // Old way of writing methods/function of an object
+//   orderPasta: function (ing1, ing2, ing3) {
+//     console.log(
+//       `Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`
+//     );
+//   },
 
-  //Enhanced way of writing methods/function of an object
-  orderPasta(ing1, ing2, ing3) {
-    console.log(
-      `Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`
-    );
-  },
+//   //Enhanced way of writing methods/function of an object
+//   orderPasta(ing1, ing2, ing3) {
+//     console.log(
+//       `Your delicious pasta with ${ing1}, ${ing2} & ${ing3} is ready!!!!!!`
+//     );
+//   },
 
-  orderPizza: function (main1, main2, main3, ...customToppings) {
-    console.log(
-      `Your delicious pizza with ${main1}, ${main2}, ${main3} & your favorite toppings ${customToppings} is ready!!!!!!`
-    );
-  }
-};
+//   orderPizza: function (main1, main2, main3, ...customToppings) {
+//     console.log(
+//       `Your delicious pizza with ${main1}, ${main2}, ${main3} & your favorite toppings ${customToppings} is ready!!!!!!`
+//     );
+//   }
+// };
 
-console.log(restaurant2);
+// console.log(restaurant2);
 
-//Optional Chaining
-console.log(
-  '~~~~~~~~~~~~~Optional Chaining~~~~~~~~~~~~~~~~~~~'
-);
-console.log(restaurant?.openingHours?.mon);
+// //Optional Chaining
+// console.log(
+//   '~~~~~~~~~~~~~Optional Chaining~~~~~~~~~~~~~~~~~~~'
+// );
+// console.log(restaurant?.openingHours?.mon);
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-for(const day of days) {
-  const time = restaurant.openingHours?.[day]?.open ?? '';
-  const status = time ? `open at ${time}` : 'closed' ;
-  console.log(`We ${status || 'test'} on ${day}`);
-}
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// for(const day of days) {
+//   const time = restaurant.openingHours?.[day]?.open ?? '';
+//   const status = time ? `open at ${time}` : 'closed' ;
+//   console.log(`We ${status || 'test'} on ${day}`);
+// }
 
 //Looping Objects
-console.log(
-  '~~~~~~~~~~~~~Looping Objects~~~~~~~~~~~~~~~~~~~'
-);
+console.log('~~~~~~~~~~~~~Looping Objects~~~~~~~~~~~~~~~~~~~');
+console.log(restaurant);
+const days = Object.keys(restaurant.openingHours)
+console.log(days);
+// for();
+for(const [day, {open, close}] of Object.entries(restaurant.openingHours)) {
+  console.log(`On ${day}, we are servicable between ${open}:00 & ${close}:00`);
+}

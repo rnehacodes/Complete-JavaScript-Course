@@ -728,66 +728,110 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 GOOD LUCK 😀
 */
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-console.log('~~~~~~~~~~~~~Coding Challenge #2~~~~~~~~~~~~');
-console.log('~~~~~~~Solution 1~~~~~~~~');
-let i = 1;
-for (const player of game.scored) {
-  console.log(`Goal ${i}: ${player}`);
+// console.log('~~~~~~~~~~~~~Coding Challenge #2~~~~~~~~~~~~');
+// console.log('~~~~~~~Solution 1~~~~~~~~');
+// let i = 1;
+// for (const player of game.scored) {
+//   console.log(`Goal ${i}: ${player}`);
+// }
+
+// console.log('~~~~~~~Solution 2~~~~~~~~');
+// let sum = 0,
+//   n = 0;
+// for (const [, odd] of Object.entries(game.odds)) sum += odd;
+// n++;
+// console.log(`Average Odd = ${sum / n}`);
+
+// console.log('~~~~~~~Solution 3~~~~~~~~');
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const str = team == 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${str}: ${odd}`);
+// }
+
+// console.log('~~~~~~~Bonus Solution~~~~~~~~');
+// let scorers = {};
+// for(const player of game.scored) {
+//   scorers[player] = scorers[player] ? ++scorers[player] : 1;
+// }
+// console.log(scorers);
+
+//Sets
+console.log('~~~~~~~~~~~~~Sets~~~~~~~~~~~~~');
+const orders = new Set(['Samosa', 'Kachori', 'Chai', 'Jalebi', 'Bread Pakora', 'Bread Pakora']);
+console.log(orders);
+console.log(orders.size);
+
+console.log(orders.has('Tea'));
+console.log(orders.has('Chai'));
+
+orders.add('Dhokla');
+console.log(orders);
+console.log(orders.size);
+
+//set made up of array
+const charSet1 = new Set('String');
+console.log(...charSet1);
+const charSet2 = new Set('String Test');
+console.log(...charSet2);
+charSet2.delete(' ');
+console.log(...charSet2);
+
+//set made up of array
+const peopleOnTables = [1, 3, 4, 1, 2, 6, 5, 4, 2, 1, 0];
+const chairTables = new Set([...peopleOnTables]);
+console.log(chairTables);
+
+//set made up of duplicate value array to unique valule array
+const beverages = [...new Set(['Coke', 'Mirinda', "Limca", 'Limca', 'Coke', 'Pepsi'])];
+console.log(beverages);
+
+//Iterating over set elements
+for(const drink of charSet1) {
+  console.log(drink);
 }
 
-console.log('~~~~~~~Solution 2~~~~~~~~');
-let sum = 0,
-  n = 0;
-for (const [, odd] of Object.entries(game.odds)) sum += odd;
-n++;
-console.log(`Average Odd = ${sum / n}`);
-
-console.log('~~~~~~~Solution 3~~~~~~~~');
-for (const [team, odd] of Object.entries(game.odds)) {
-  const str = team == 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${str}: ${odd}`);
-}
-
-console.log('~~~~~~~Bonus Solution~~~~~~~~');
-const scorers = {};
+//Clearing the set
+console.log(...charSet2);
+charSet2.clear();
+console.log(...charSet2);

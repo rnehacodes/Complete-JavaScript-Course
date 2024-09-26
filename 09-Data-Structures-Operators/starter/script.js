@@ -797,41 +797,142 @@ GOOD LUCK 😀
 // console.log(scorers);
 
 //Sets
-console.log('~~~~~~~~~~~~~Sets~~~~~~~~~~~~~');
-const orders = new Set(['Samosa', 'Kachori', 'Chai', 'Jalebi', 'Bread Pakora', 'Bread Pakora']);
-console.log(orders);
-console.log(orders.size);
+// console.log('~~~~~~~~~~~~~Sets~~~~~~~~~~~~~');
+// const orders = new Set(['Samosa', 'Kachori', 'Chai', 'Jalebi', 'Bread Pakora', 'Bread Pakora']);
+// console.log(orders);
+// console.log(orders.size);
 
-console.log(orders.has('Tea'));
-console.log(orders.has('Chai'));
+// console.log(orders.has('Tea'));
+// console.log(orders.has('Chai'));
 
-orders.add('Dhokla');
-console.log(orders);
-console.log(orders.size);
+// orders.add('Dhokla');
+// console.log(orders);
+// console.log(orders.size);
 
-//set made up of array
-const charSet1 = new Set('String');
-console.log(...charSet1);
-const charSet2 = new Set('String Test');
-console.log(...charSet2);
-charSet2.delete(' ');
-console.log(...charSet2);
+// //set made up of array
+// const charSet1 = new Set('String');
+// console.log(...charSet1);
+// const charSet2 = new Set('String Test');
+// console.log(...charSet2);
+// charSet2.delete(' ');
+// console.log(...charSet2);
 
-//set made up of array
-const peopleOnTables = [1, 3, 4, 1, 2, 6, 5, 4, 2, 1, 0];
-const chairTables = new Set([...peopleOnTables]);
-console.log(chairTables);
+// //set made up of array
+// const peopleOnTables = [1, 3, 4, 1, 2, 6, 5, 4, 2, 1, 0];
+// const chairTables = new Set([...peopleOnTables]);
+// console.log(chairTables);
 
-//set made up of duplicate value array to unique valule array
-const beverages = [...new Set(['Coke', 'Mirinda', "Limca", 'Limca', 'Coke', 'Pepsi'])];
-console.log(beverages);
+// //set made up of duplicate value array to unique valule array
+// const beverages = [...new Set(['Coke', 'Mirinda', "Limca", 'Limca', 'Coke', 'Pepsi'])];
+// console.log(beverages);
 
-//Iterating over set elements
-for(const drink of charSet1) {
-  console.log(drink);
+// //Iterating over set elements
+// for(const drink of charSet1) {
+//   console.log(drink);
+// }
+
+// //Clearing the set
+// console.log(...charSet2);
+// charSet2.clear();
+// console.log(...charSet2);
+
+//Maps
+console.log('~~~~~~~~~~~~~Maps~~~~~~~~~~~~~');
+// const customerOrders = new Map();
+// customerOrders.set('Riya', ['Pizza', 'Sundae', 'Coke']);
+// customerOrders.set('Simmi', ['Chilli Potato', 'Ice Cream', 'Pepsi']);
+// customerOrders.set('Shruti', ['Noodles', 'Kulfi', 'Coke']);
+// console.log(customerOrders);
+
+// console.log(
+//   customerOrders.set('Neha', [
+//     'Cheesy Fries',
+//     'Chocolate Shake',
+//     'Garlic Bread',
+//   ])
+// );
+
+// const myCafe = new Map([
+//   ['Name', "Neha's Cafe"],
+//   ['Open', '10'],
+//   ['Close', '22'],
+//   [
+//     'menu',
+//     [
+//       ...customerOrders.get('Riya'),
+//       ...customerOrders.get('Simmi'),
+//       ...customerOrders.get('Neha'),
+//     ],
+//   ],
+//   [true, "Welcome to Neha's cafe"],
+//   [
+//     false,
+//     'Unfortunately, we are closed for now! But we would love to host you next day between 10:00 & 22:00',
+//   ],
+// ]);
+// console.log(myCafe);
+
+// const currentHour = 14;
+// console.log(
+//   myCafe.get(
+//     currentHour >= myCafe.get('Open') && currentHour <= myCafe.get('Close')
+//   )
+// );
+
+// console.log(...customerOrders);
+// customerOrders.delete('Neha');
+// console.log(...customerOrders);
+
+//Passing an array as a Map Key
+//Case 1
+// myCafe.set([1, 2, 3], ['Occupied', 'Reserved', 'Unoccupied']);
+// const arr = [1, 2, 3];
+// console.log(...myCafe);
+// console.log(myCafe.get(arr));
+
+//Case 2
+// const arr = [1, 2, 3];
+// myCafe.set(arr, ['Occupied', 'Reserved', 'Unoccupied']);
+// console.log(...myCafe);
+// console.log(myCafe.get(arr));
+
+// //Making a DOM element as key/value of a map
+// const DOMMap = new Map();
+// DOMMap.set(document.querySelector('h1'), 'Heading').set(
+//   'Body',
+//   document.querySelector('body')
+// );
+// console.log(DOMMap);
+
+//Iterating thorugh the map
+//Object Entries to map
+console.log(restaurant.openingHours);
+const openingHoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(openingHoursMap);
+
+const questionMap = new Map([
+  ['question', 'Which is the most nice programming language?'],
+  [1, 'C#'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct Answer🎉'],
+  [false, 'Oops Wrong Answer⛔']
+])
+console.log(questionMap);
+console.log(questionMap.get('question'));
+for(const [key, value] of questionMap) {
+  if(typeof key === 'number') {
+    console.log(`Option ${key}: ${value}`);
+  }
 }
+// const response = Number(prompt(`${questionMap.get('question')}`));
+// console.log(questionMap.get((response === questionMap.get('correct'))));
 
-//Clearing the set
-console.log(...charSet2);
-charSet2.clear();
-console.log(...charSet2);
+//Converting map to array
+console.log('Quiz elements\n');
+console.log([...questionMap]);
+console.log([...questionMap.entries()]);
+console.log([...questionMap.keys()]);
+console.log([...questionMap.values()]);
+

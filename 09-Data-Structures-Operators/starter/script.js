@@ -837,102 +837,146 @@ GOOD LUCK 😀
 // console.log(...charSet2);
 
 //Maps
-console.log('~~~~~~~~~~~~~Maps~~~~~~~~~~~~~');
-// const customerOrders = new Map();
-// customerOrders.set('Riya', ['Pizza', 'Sundae', 'Coke']);
-// customerOrders.set('Simmi', ['Chilli Potato', 'Ice Cream', 'Pepsi']);
-// customerOrders.set('Shruti', ['Noodles', 'Kulfi', 'Coke']);
-// console.log(customerOrders);
+// console.log('~~~~~~~~~~~~~Maps~~~~~~~~~~~~~');
+// // const customerOrders = new Map();
+// // customerOrders.set('Riya', ['Pizza', 'Sundae', 'Coke']);
+// // customerOrders.set('Simmi', ['Chilli Potato', 'Ice Cream', 'Pepsi']);
+// // customerOrders.set('Shruti', ['Noodles', 'Kulfi', 'Coke']);
+// // console.log(customerOrders);
 
-// console.log(
-//   customerOrders.set('Neha', [
-//     'Cheesy Fries',
-//     'Chocolate Shake',
-//     'Garlic Bread',
-//   ])
-// );
+// // console.log(
+// //   customerOrders.set('Neha', [
+// //     'Cheesy Fries',
+// //     'Chocolate Shake',
+// //     'Garlic Bread',
+// //   ])
+// // );
 
-// const myCafe = new Map([
-//   ['Name', "Neha's Cafe"],
-//   ['Open', '10'],
-//   ['Close', '22'],
-//   [
-//     'menu',
-//     [
-//       ...customerOrders.get('Riya'),
-//       ...customerOrders.get('Simmi'),
-//       ...customerOrders.get('Neha'),
-//     ],
-//   ],
-//   [true, "Welcome to Neha's cafe"],
-//   [
-//     false,
-//     'Unfortunately, we are closed for now! But we would love to host you next day between 10:00 & 22:00',
-//   ],
-// ]);
-// console.log(myCafe);
+// // const myCafe = new Map([
+// //   ['Name', "Neha's Cafe"],
+// //   ['Open', '10'],
+// //   ['Close', '22'],
+// //   [
+// //     'menu',
+// //     [
+// //       ...customerOrders.get('Riya'),
+// //       ...customerOrders.get('Simmi'),
+// //       ...customerOrders.get('Neha'),
+// //     ],
+// //   ],
+// //   [true, "Welcome to Neha's cafe"],
+// //   [
+// //     false,
+// //     'Unfortunately, we are closed for now! But we would love to host you next day between 10:00 & 22:00',
+// //   ],
+// // ]);
+// // console.log(myCafe);
 
-// const currentHour = 14;
-// console.log(
-//   myCafe.get(
-//     currentHour >= myCafe.get('Open') && currentHour <= myCafe.get('Close')
-//   )
-// );
+// // const currentHour = 14;
+// // console.log(
+// //   myCafe.get(
+// //     currentHour >= myCafe.get('Open') && currentHour <= myCafe.get('Close')
+// //   )
+// // );
 
-// console.log(...customerOrders);
-// customerOrders.delete('Neha');
-// console.log(...customerOrders);
+// // console.log(...customerOrders);
+// // customerOrders.delete('Neha');
+// // console.log(...customerOrders);
 
-//Passing an array as a Map Key
-//Case 1
-// myCafe.set([1, 2, 3], ['Occupied', 'Reserved', 'Unoccupied']);
-// const arr = [1, 2, 3];
-// console.log(...myCafe);
-// console.log(myCafe.get(arr));
+// //Passing an array as a Map Key
+// //Case 1
+// // myCafe.set([1, 2, 3], ['Occupied', 'Reserved', 'Unoccupied']);
+// // const arr = [1, 2, 3];
+// // console.log(...myCafe);
+// // console.log(myCafe.get(arr));
 
-//Case 2
-// const arr = [1, 2, 3];
-// myCafe.set(arr, ['Occupied', 'Reserved', 'Unoccupied']);
-// console.log(...myCafe);
-// console.log(myCafe.get(arr));
+// //Case 2
+// // const arr = [1, 2, 3];
+// // myCafe.set(arr, ['Occupied', 'Reserved', 'Unoccupied']);
+// // console.log(...myCafe);
+// // console.log(myCafe.get(arr));
 
-// //Making a DOM element as key/value of a map
-// const DOMMap = new Map();
-// DOMMap.set(document.querySelector('h1'), 'Heading').set(
-//   'Body',
-//   document.querySelector('body')
-// );
-// console.log(DOMMap);
+// // //Making a DOM element as key/value of a map
+// // const DOMMap = new Map();
+// // DOMMap.set(document.querySelector('h1'), 'Heading').set(
+// //   'Body',
+// //   document.querySelector('body')
+// // );
+// // console.log(DOMMap);
 
-//Iterating thorugh the map
-//Object Entries to map
-console.log(restaurant.openingHours);
-const openingHoursMap = new Map(Object.entries(restaurant.openingHours));
-console.log(openingHoursMap);
+// //Iterating thorugh the map
+// //Object Entries to map
+// console.log(restaurant.openingHours);
+// const openingHoursMap = new Map(Object.entries(restaurant.openingHours));
+// console.log(openingHoursMap);
 
-const questionMap = new Map([
-  ['question', 'Which is the most nice programming language?'],
-  [1, 'C#'],
-  [2, 'Java'],
-  [3, 'JavaScript'],
-  ['correct', 3],
-  [true, 'Correct Answer🎉'],
-  [false, 'Oops Wrong Answer⛔']
-])
-console.log(questionMap);
-console.log(questionMap.get('question'));
-for(const [key, value] of questionMap) {
-  if(typeof key === 'number') {
-    console.log(`Option ${key}: ${value}`);
-  }
+// const questionMap = new Map([
+//   ['question', 'Which is the most nice programming language?'],
+//   [1, 'C#'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct Answer🎉'],
+//   [false, 'Oops Wrong Answer⛔']
+// ])
+// console.log(questionMap);
+// console.log(questionMap.get('question'));
+// for(const [key, value] of questionMap) {
+//   if(typeof key === 'number') {
+//     console.log(`Option ${key}: ${value}`);
+//   }
+// }
+// // const response = Number(prompt(`${questionMap.get('question')}`));
+// // console.log(questionMap.get((response === questionMap.get('correct'))));
+
+// //Converting map to array
+// console.log('Quiz elements\n');
+// console.log([...questionMap]);
+// console.log([...questionMap.entries()]);
+// console.log([...questionMap.keys()]);
+// console.log([...questionMap.values()]);
+
+///////////////////////////////////////
+// Coding Challenge #3
+
+/* 
+Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, it was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+      [FIRST HALF] 17: ⚽️ GOAL
+
+GOOD LUCK 😀
+*/
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+console.log('~~~~~~~~~~~~~Challenge 3~~~~~~~~~~~~~');
+const eventsSet = new Set();
+for(const [key, value] of gameEvents) {
+  eventsSet.add(value);
 }
-// const response = Number(prompt(`${questionMap.get('question')}`));
-// console.log(questionMap.get((response === questionMap.get('correct'))));
+const events = [...eventsSet]
+console.log(events);
 
-//Converting map to array
-console.log('Quiz elements\n');
-console.log([...questionMap]);
-console.log([...questionMap.entries()]);
-console.log([...questionMap.keys()]);
-console.log([...questionMap.values()]);
+console.log(gameEvents);
+gameEvents.delete(64);
+console.log(gameEvents);
 
+for(const [key, value] of gameEvents) {
+  const str = key < 45 ? 'FIRST' : 'SECOND'
+  console.log(`[${str} HALF] ${key}: ${value}`);;
+}

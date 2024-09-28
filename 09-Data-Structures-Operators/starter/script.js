@@ -951,6 +951,7 @@ Let's continue with our football betting app! This time, we have a map with a lo
 GOOD LUCK 😀
 */
 
+/*
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
   [36, '🔁 Substitution'],
@@ -965,18 +966,50 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 console.log('~~~~~~~~~~~~~Challenge 3~~~~~~~~~~~~~');
-const eventsSet = new Set();
-for(const [key, value] of gameEvents) {
-  eventsSet.add(value);
-}
+const eventsSet = [...new Set(gameEvents.values())];
+// for(const [key, value] of gameEvents) {
+//   eventsSet.add(value);
+// }
 const events = [...eventsSet]
 console.log(events);
 
-console.log(gameEvents);
+console.log(...gameEvents);
 gameEvents.delete(64);
-console.log(gameEvents);
+console.log(...gameEvents);
 
 for(const [key, value] of gameEvents) {
   const str = key < 45 ? 'FIRST' : 'SECOND'
   console.log(`[${str} HALF] ${key}: ${value}`);;
 }
+*/
+
+//Working with Strings
+console.log('~~~~~~~~~~~~~~Working with Strings~~~~~~~~~~~~~~~');
+const airline = 'Air India';
+const plane = 'Airbus 320';
+
+console.log(plane[0], airline[7]);
+console.log(airline.length, plane.length);
+console.log('462973'[3]);
+
+//finding index of a letter in string
+console.log(airline.indexOf('i'));
+console.log(airline.lastIndexOf('i'));
+
+//taking a part of a string
+console.log(plane.slice(3));
+console.log(plane.slice(7, plane.length));
+console.log(airline.slice(1, -5)); //the second (-ve) index cuts of the number of character form the left
+
+const seatMap = new Map([
+  ['A', 'Left row Window'],
+  ['B', 'Left row Middle'],
+  ['C', 'Left row Aisle'],
+  ['D', 'Right row Aisle'],
+  ['E', 'Right row Middle'],
+  ['F', 'Right row Window']
+]);
+
+let seatNumber = '1D';
+// seatNumber = prompt('Enter your seat number!');
+console.log(`You've got a ${seatMap.get(seatNumber.slice(1))} seat`);

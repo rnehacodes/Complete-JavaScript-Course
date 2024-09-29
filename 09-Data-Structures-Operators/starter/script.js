@@ -983,8 +983,9 @@ for(const [key, value] of gameEvents) {
 }
 */
 
-//Working with Strings
-console.log('~~~~~~~~~~~~~~Working with Strings~~~~~~~~~~~~~~~');
+/*
+//Working with Strings #1
+console.log('~~~~~~~~~~~~~~Working with Strings #1~~~~~~~~~~~~~~~');
 const airline = 'Air India';
 const plane = 'Airbus 320';
 
@@ -1013,3 +1014,57 @@ const seatMap = new Map([
 let seatNumber = '1D';
 // seatNumber = prompt('Enter your seat number!');
 console.log(`You've got a ${seatMap.get(seatNumber.slice(1))} seat`);
+*/
+
+/*
+//Working with Strings #2
+console.log('~~~~~~~~~~~~~~Working with Strings #2~~~~~~~~~~~~~~~');
+const randomText = 'Welcome to BanARas IN 2024!';
+console.log(
+  `Actual text - ${randomText}\nUppercase Text - ${randomText.toUpperCase()}\nLowercase Text - ${randomText.toLowerCase()}`
+);
+
+const userInput = ' myemail@test.com\n';
+const filteredEmail = userInput.trim(); //can only trim spaces left & right not in between words
+console.log(filteredEmail);
+
+const fixedEmail = filteredEmail.replace('email', 'tech');
+console.log(fixedEmail);
+
+const opinion = 'Jasvscript is a confusing programming language';
+const facts = opinion.replace('confusing', 'easy to learn');
+console.log(facts);
+console.log(facts.startsWith('Javascript'));
+
+const ticketNumber = prompt('Please enter your ticket number to get the status:');
+let ticketStatus = 'Your seat linked to ' + ticketNumber + ' is pending approval';
+console.log(ticketStatus);
+console.log(`Please complete the authentication.`);
+const code = 5320;
+const enteredCode = prompt('Enter yoru verification code!');
+if(code == enteredCode) {
+  ticketStatus = ticketStatus.replace(/pending approval/g, 'confirmed');
+  console.log(ticketStatus);
+} else {
+  console.log('Verification Failed!');
+}
+*/
+
+//Working with Strings #3
+console.log('~~~~~~~~~~~~~~Working with Strings #3~~~~~~~~~~~~~~~');
+const fullName = 'John Doe';
+const [firstName, lastName] = fullName.split(' ');
+console.log(firstName, lastName);
+
+const inputs = [];
+let i = 'Your dish with';
+// while (i !== '.') {
+//   i = prompt(
+//     "Enter your ingredients you wish to choose for your dish. (Enter '.' to stop the process!)"
+//   );
+//   if(i !== '.') inputs.push(i);
+// }
+console.log('Your dish with ' + inputs.join(' ') + 'will be ready soon!');
+
+console.log(fullName.padStart(18, '~').padEnd(30, '~'));
+console.log(`${fullName} `.repeat(5));

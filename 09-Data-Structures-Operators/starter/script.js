@@ -1,9 +1,5 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -1071,10 +1067,8 @@ console.log(fullName.padStart(18, '~').padEnd(30, '~'));
 console.log(`${fullName} `.repeat(5));
 */
 
-///////////////////////////////////////
 // Coding Challenge #4
-
-/* 
+/*
 Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
 
 The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
@@ -1102,21 +1096,43 @@ Afterwards, test with your own test data!
 
 GOOD LUCK 😀
 */
-
+/*
 document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+const button = document.createElement('button');
+button.innerHTML = '↩️';
+document.body.append(button);
 
 document.querySelector('button').addEventListener('click', function () {
-  const text = document.querySelector('textarea').value;
-  let fullName = text.toLowerCase().trim();
-  let [a, b] = fullName.split('\n');
-  a = a.slice(0, 1).toLowerCase() + a.slice(1);
-  b = b.slice(0, 1).toUpperCase() + b.slice(1);
-  console.log(a + b);
+  let text = document.querySelector('textarea').value;
+  text = text.toLowerCase().trim();
+  console.log(text);
+  let names = text.split('\n');
+  let i = 0;
+  for(let fullName of names) {
+    fullName = fullName.trim();
+    let [firstName, lastName] = fullName.split('_');
+    fullName = firstName + lastName.slice(0, 1).toUpperCase() + lastName.slice(1);
+    console.log(fullName.padEnd(21, ' ') + '✅'.repeat(++i));
+  }
+  // console.log(a + b);
 });
+*/
 
-modifyCase('underscore_case');
-modifyCase(' first_name');
-modifyCase('Some_Variable ');
-modifyCase('  calculate_AGE');
-modifyCase('delayed_departure');
+//Strings Methods Practice
+console.log('Strings Methods Practice'.padStart(30, `~`).padEnd(36, `~`));
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+let flightList = flights.split('+');
+for(let flightDetails of flightList) {
+  flightDetails = flightDetails.split(';');
+  flightDetails[0] = flightDetails[0].slice(1).split('_');
+  let status = `${flightDetails[0].join(' ')} from ${flightDetails[1].toUpperCase().slice(0,3)} to ${flightDetails[2].toUpperCase().slice(0,3)} (${flightDetails[3].substring(0,2)}h${flightDetails[3].substring(3,7)})`;
+  status = status.includes('Delayed') ? status.replace('Delayed', '🔴 Delayed') : status;
+  console.log(status.padStart(44));
+}

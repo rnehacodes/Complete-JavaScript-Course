@@ -21,6 +21,7 @@ createBooking('Boeing 950');
 console.log(...bookings); */
 
 //Function: Arguments Passing - Value vs Reference
+/*
 console.log('Function: Arguments Passing - Value vs Reference'.padStart(35, '~').padEnd(37, '~'));
 
 const passenger = {name : 'Neha Rajput', bookingID : 21051}, flight = 'ATR 72B';
@@ -40,3 +41,7 @@ function verifyBooking (flightName, passengerDetails) {
 console.log(flight, passenger);
 verifyBooking(flight, passenger);
 console.log(flight, passenger);
+*/
+
+//Function Accepting Callback Function
+console.log('Function Accepting Callback Function'.padStart(35, '~').padEnd(37, '~'));

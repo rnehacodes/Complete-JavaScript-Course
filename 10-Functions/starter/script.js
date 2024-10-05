@@ -45,3 +45,21 @@ console.log(flight, passenger);
 
 //Function Accepting Callback Function
 console.log('Function Accepting Callback Function'.padStart(35, '~').padEnd(37, '~'));
+const oneWord = function(str) {
+    return str.replace(/ /g, ' ');
+}
+
+const upperFirstWord = function(str) {
+    const [first, ...others] = str.split(' ');
+    return [first.toUpperCase(), ...others].join(' ');
+}
+
+//Higher Order Function
+function transformer(str, fun) {
+    console.log(`Original String: ${str}`);
+    console.log(`Transformed String using ${fun.name}: ${fun(str)}`);
+}
+
+const str = 'JavaScript is best!';
+transformer(str, upperFirstWord); //upperFirstWord is an callback function here
+transformer(str, oneWord);

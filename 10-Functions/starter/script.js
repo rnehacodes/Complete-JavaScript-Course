@@ -44,7 +44,7 @@ console.log(flight, passenger);
 */
 
 //Function Accepting Callback Function
-console.log('Function Accepting Callback Function'.padStart(35, '~').padEnd(37, '~'));
+/* console.log('Function Accepting Callback Function'.padStart(35, '~').padEnd(37, '~'));
 const oneWord = function(str) {
     return str.replace(/ /g, ' ');
 }
@@ -62,4 +62,14 @@ function transformer(str, fun) {
 
 const str = 'JavaScript is best!';
 transformer(str, upperFirstWord); //upperFirstWord is an callback function here
-transformer(str, oneWord);
+transformer(str, oneWord); */
+
+//Function Returning Function
+console.log('Function Returning Function'.padStart(35, '~').padEnd(37, '~'));
+function greeting(str) {
+    return function greet(name) {
+        console.log(`${str} ${name}`);
+    }
+}
+const myGreet  = greeting('Hii')('NEHA');
+

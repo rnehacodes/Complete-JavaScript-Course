@@ -65,11 +65,60 @@ transformer(str, upperFirstWord); //upperFirstWord is an callback function here
 transformer(str, oneWord); */
 
 //Function Returning Function
+/*
 console.log('Function Returning Function'.padStart(35, '~').padEnd(37, '~'));
-function greeting(str) {
-    return function greet(name) {
+//Function Expression
+// function greeting(str) {
+//     return function greet(name) {
+//         console.log(`${str} ${name}`);
+//     }
+// }
+
+//Arrow Function
+const greeting = (str) => {
+    const greet = (name) => {
         console.log(`${str} ${name}`);
     }
+    return greet;
 }
-const myGreet  = greeting('Hii')('NEHA');
+greeting('Hii')('NEHA');
 
+//Optimised Version
+const greetArr = (str) => (name) => console.log(`${str} ${name}`);
+greetArr('Hi(from arrow function)')('World');
+*/
+
+//Call and Apply Methods
+console.log('Call and Apply Methods'.padStart(30, '~').padEnd(35, '~'));
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LFTH',
+    bookings: [],
+    book(flightNum, name) {
+        const booking = {passengerName: name, flight: `${this.iataCode}${flightNum}`};
+        this.bookings.push(booking);
+        console.log(`${this.airline} airline alert 🔔: Booking confirmed for ${booking.passengerName} on flight ${booking.flight}`);
+        console.log([this]);
+    }
+}
+
+lufthansa.book(456, 'Neha Rajput');
+lufthansa.book(999, 'John Doe');
+
+const airIndia = {
+    airline: 'Air India',
+    iataCode: 'AI',
+    bookings: []
+}
+
+const book = lufthansa.book;
+//can't do this as in this case book points to NO 'this' object
+// book(999, 'SFASDFSDF')
+
+//Book method called via call method of book function
+book.call(airIndia, 927, 'Test Call Function');
+
+//Apply method called via call method of book function
+book.apply(airIndia, [274, 'Test Apply Function']);
+
+book.call(airIndia, ...[306, 'Test Call Function via Apply method']);

@@ -89,7 +89,7 @@ greetArr('Hi(from arrow function)')('World');
 */
 
 //Call and Apply Methods
-console.log('Call and Apply Methods'.padStart(30, '~').padEnd(35, '~'));
+// console.log('Call and Apply Methods'.padStart(30, '~').padEnd(35, '~'));
 const lufthansa = {
     airline: 'Lufthansa',
     iataCode: 'LFTH',
@@ -102,23 +102,58 @@ const lufthansa = {
     }
 }
 
-lufthansa.book(456, 'Neha Rajput');
-lufthansa.book(999, 'John Doe');
+// lufthansa.book(456, 'Neha Rajput');
+// lufthansa.book(999, 'John Doe');
 
-const airIndia = {
-    airline: 'Air India',
-    iataCode: 'AI',
-    bookings: []
-}
+// const airIndia = {
+//     airline: 'Air India',
+//     iataCode: 'AI',
+//     bookings: []
+// }
 
 const book = lufthansa.book;
 //can't do this as in this case book points to NO 'this' object
 // book(999, 'SFASDFSDF')
 
 //Book method called via call method of book function
-book.call(airIndia, 927, 'Test Call Function');
+// book.call(airIndia, 927, 'Test Call Function');
 
-//Apply method called via call method of book function
-book.apply(airIndia, [274, 'Test Apply Function']);
+// //Apply method called via call method of book function
+// book.apply(airIndia, [274, 'Test Apply Function']);
 
-book.call(airIndia, ...[306, 'Test Call Function via Apply method']);
+// book.call(airIndia, ...[306, 'Test Call Function via Apply method']);
+
+// //Bind method
+console.log('Bind Methods'.padStart(24, '~').padEnd(35, '~'));
+// const indigo = {
+//     airline: 'Indigo',
+//     iataCode: '6E',
+//     bookings: []
+// }
+
+// //Way 1
+// const book6E = book.bind(indigo);
+// book6E(1223, 'Rajput Family');
+
+// // Way 2
+// const book6E = book.bind(indigo, 876);
+// book6E('Rajput Family');
+
+const spiceJet = {
+    airline: 'Indigo',
+    iataCode: '6E',
+    bookings: []
+}
+
+spiceJet.planes = 0;
+spiceJet.buyPlanes = function() {
+    console.log('Before: ' + this.planes);
+    this.planes++;
+    console.log('After: ' + this.planes);
+}
+
+//This method would lead to NAN as when calling a function on an eventhandler, it points to the element on which it is attached and it called buyPlanes function on '.buy' button instead of spiceJet object
+// document.querySelector('.buy'). addEventListener('click', spiceJet.buyPlanes)
+
+//Correct Way
+document.querySelector('.buy'). addEventListener('click', spiceJet.buyPlanes.bind(spiceJet));

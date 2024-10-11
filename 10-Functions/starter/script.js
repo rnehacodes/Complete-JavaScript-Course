@@ -157,3 +157,5 @@ spiceJet.buyPlanes = function() {
 
 //Correct Way
 document.querySelector('.buy'). addEventListener('click', spiceJet.buyPlanes.bind(spiceJet));
+
+//Challenge #1

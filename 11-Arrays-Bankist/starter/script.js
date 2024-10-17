@@ -1,5 +1,13 @@
 'use strict';
 
+function printTopic(topic, max = 50) {
+  if (topic.length <= 50) {
+    const x = '~'.repeat((50 - topic.length) / 2);
+    topic = x + topic + x;
+  }
+  console.log(topic);
+}
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP
@@ -75,12 +83,11 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-
 //Simple Array Methods
-console.log('~~~~Simple Array Methods~~~~');
+// console.log('~~~~Simple Array Methods~~~~');
 
-let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-
+// let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+/*
 console.log('Original array arr[] = ' + arr);
 console.log('Sliced array with arr.slice(4) - ' + arr.slice(4));
 console.log('Sliced array with arr.slice(3, 6) - ' + arr.slice(3, 6));
@@ -103,4 +110,30 @@ console.log('arr after concat() - ' + arr); //Didn't mutate
 console.log('arr2 after concat() - ' + arr2);
 
 console.log(arr.join(' ~ ') + ' ~ ' + arr2.join(' ~ '));
+*/
 
+//The NEW method
+/*
+console.log('~~~~NEW Methods~~~~');
+console.log('arr[0] method -> ' + arr[0]);
+console.log('arr.at(0) method -> ' + arr.at(0));
+
+//Getting last element of the array
+console.log('arr[arr.length-1] method -> ' + arr[arr.length-1]);
+console.log('arr.slice(-1)[0] method -> ' + arr.slice(-1)[0]);
+console.log('arr.at(-1) method -> ' + arr.at(-1));
+*/
+
+//For-each method
+printTopic('For-each method');
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+array.forEach(element => {
+  
+});()

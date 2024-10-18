@@ -124,8 +124,8 @@ console.log('arr.slice(-1)[0] method -> ' + arr.slice(-1)[0]);
 console.log('arr.at(-1) method -> ' + arr.at(-1));
 */
 
-//For-each method
-printTopic('For-each method');
+//For-each method [Arrays]
+printTopic('For-each method [Arrays]');
 for (const movement of movements) {
   if (movement > 0) {
     console.log(`You deposited ${movement}`);
@@ -137,3 +137,6 @@ for (const movement of movements) {
 array.forEach(element => {
   
 });()
+
+//For-each method [Maps & Sets]
+printTopic('For-each method [Maps & Sets]');

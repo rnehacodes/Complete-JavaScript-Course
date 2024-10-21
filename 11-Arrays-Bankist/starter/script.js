@@ -125,7 +125,9 @@ console.log('arr.at(-1) method -> ' + arr.at(-1));
 */
 
 //For-each method [Arrays]
+//Comparing for-of with for-each
 printTopic('For-each method [Arrays]');
+console.log('--------For-of loop--------');
 for (const movement of movements) {
   if (movement > 0) {
     console.log(`You deposited ${movement}`);
@@ -134,9 +136,24 @@ for (const movement of movements) {
   }
 }
 
-array.forEach(element => {
-  
-});()
+//For-each method [Arrays]
+console.log('--------For-each loop--------');
+movements.forEach(function(movement, i, ) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+})
 
 //For-each method [Maps & Sets]
 printTopic('For-each method [Maps & Sets]');
+currencies.forEach(function(value, key, currencies) {
+  console.log(`Country: ${value} -> Currency: ${key}`);
+});
+
+const countries = new Set(currencies.keys());
+countries.forEach(function(val, _val, countries) {
+  console.log(`Country : ${val} (${_val})`);
+})
+

@@ -157,4 +157,5 @@ countries.forEach(function(val, _val, countries) {
   console.log(`Country : ${val} (${_val})`);
 })
 
-//Bankist App
+//Creating DOM Elements
+printTopic('Creating DOM Elements');
